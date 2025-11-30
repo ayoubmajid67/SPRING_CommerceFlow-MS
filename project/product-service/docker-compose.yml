@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      # Still create a root user for administrative tasks
+      - MONGO_INITDB_ROOT_USERNAME=root # Admin user
+      - MONGO_INITDB_ROOT_PASSWORD=supersecretpassword # Use a strong password
+      # Create a dedicated user for the application
+      - MONGO_INITDB_DATABASE=product-service # The database for the new user
+      - MONGO_INITDB_USERNAME=product-user # Application-specific user
+      - MONGO_INITDB_PASSWORD=apppassword # Application-specific password
+    volumes:
+      - mongodb_data:/data/db
+
+#  product-service:
+#    build: .
+#    image: product-service
+#    container_name: product-service
+#    ports:
+#      - 8080:8080
+#
+volumes:
+  mongodb_data:
