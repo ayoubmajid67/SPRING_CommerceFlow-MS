@@ -8,4 +8,6 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 public interface CustomMapper extends ProductMapper {
 
+
+
 }

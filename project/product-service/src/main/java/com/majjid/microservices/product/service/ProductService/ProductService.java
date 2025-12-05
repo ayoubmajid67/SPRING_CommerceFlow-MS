@@ -27,7 +27,6 @@ public class ProductService implements IProductService {
     public ResponseDto<ProductResponseDto> createProduct(ProductRequestDto productRequestDto) {
         log.info("Creating new product: {}", productRequestDto.name());
 
-
         Product product = mapper.toObject(productRequestDto);
         product = productRepository.save(product);
         log.info("Product {} is saved", product.getId());
