@@ -1,10 +1,13 @@
 package com.majjid.microservices.order.service.orderService;
-
 import com.majjid.microservices.order.Dto.order.OrderCreateRequestDto;
 import com.majjid.microservices.order.Dto.order.OrderResponseDto;
 import com.majjid.microservices.order.Dto.ResponseDto;
 import com.majjid.microservices.order.Dto.order.OrderUpdateRequestDto;
+import com.majjid.microservices.order.client.inventoryClient.InventoryClient;
+import com.majjid.microservices.order.client.inventoryClient.dto.InventoryInStockResponse;
+import com.majjid.microservices.order.client.inventoryClient.dto.InventoryResponseDto;
 import com.majjid.microservices.order.config.CustomAppException;
+import com.majjid.microservices.order.config.hanlders.feignHanlders.FeignClientHandler;
 import com.majjid.microservices.order.mappers.CustomMapper;
 import com.majjid.microservices.order.model.Order;
 import com.majjid.microservices.order.repository.OrderRepository;
@@ -14,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import com.majjid.microservices.order.client.inventoryClient.dto.SellDto;
+
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +26,8 @@ import java.util.List;
 public class OrderService implements IOrderService{
   private final CustomMapper mapper;
   private  final OrderRepository orderRepository;
+  private  final InventoryClient inventoryClient;
+
     @Override
     public ResponseDto<List<OrderResponseDto>> getOrders() {
         return ResponseDto.listed(orderRepository.findAll().stream().map(mapper::toDto).toList(),"orders");
@@ -34,11 +41,23 @@ public class OrderService implements IOrderService{
 
     @Override
     public ResponseDto<OrderResponseDto> placeAnOrder(OrderCreateRequestDto orderCreateRequestDto) {
+/*
+        InventoryInStockResponse inventoryResponseDtoResponseDto =
+                FeignClientHandler.handleFeignCall(() ->
+                        inventoryClient.isInStock(orderCreateRequestDto.skuCode(), new IsInStockRequestDto(orderCreateRequestDto.quantity())) ,InventoryClient.SERVICE_NAME);
 
+       log.info("Inventory Service Response: {}", inventoryResponseDtoResponseDto);
+*/
+        InventoryInStockResponse sellInventoryResponse = FeignClientHandler.handleFeignCall(() ->inventoryClient.sellInventory(orderCreateRequestDto.skuCode(),
+               new SellDto(orderCreateRequestDto.quantity())),InventoryClient.SERVICE_NAME);
+
+       log.info("Sell Service Response: {}", sellInventoryResponse);
         Order order = mapper.toObject(orderCreateRequestDto);
         order= orderRepository.save(order);
 
-//        ToDo : update the create order request to check the inventory (stock before creating a new order)
+        log.info("Order : {}", order);
+
+
         return ResponseDto.created(mapper.toDto(order),"order");
 
     }

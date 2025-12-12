@@ -1,9 +1,9 @@
-package com.majjid.microservices.order.config;
+package com.majjid.microservices.inventory.config;
 
 import org.springframework.http.HttpStatus;
 
-
 public class CustomAppException extends RuntimeException {
+
     private final HttpStatus status;
    public  static String buildNotFoundMsg(Object objectId,String ObjectType){
        return "The "+ObjectType+" with id " + objectId + " does not exist";
@@ -20,15 +20,12 @@ public class CustomAppException extends RuntimeException {
         return "Insufficient Quantity for " + objectType + " with ID: " + objectId + ".";
     }
 
-
-
     public CustomAppException(HttpStatus status, String message) {
         super(message);
         this.status = status;
-
     }
+
     public HttpStatus getStatus() {
         return status;
     }
-
 }

@@ -1,4 +1,4 @@
-package com.majjid.microservices.order.config;
+package com.majjid.microservices.inventory.config;
 
 import jakarta.servlet.ServletException;
 import org.springframework.http.HttpStatus;
@@ -54,20 +54,21 @@ public class GlobalExceptionHandler {
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
 
-        if(ex.getCause() != null){
+      if(ex.getCause() != null){
 
-            error.put("message", ex.getMessage() + "  " + ex.getCause().getMessage() + " \\ " + ex.getClass().getName() + " \\ " + ex.getStackTrace());
+          error.put("message", ex.getMessage() + "  " + ex.getCause().getMessage() + " \\ " + ex.getClass().getName() + " \\ " + ex.getStackTrace());
 
-        }
-        else {
-            error.put("message", ex.getMessage() + "  \\ " + ex.getClass().getName() + " \\ " + ex.getStackTrace());
+      }
+      else {
+          error.put("message", ex.getMessage() + "  \\ " + ex.getClass().getName() + " \\ " + ex.getStackTrace());
 
 
-        }
+      }
 
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
+
     @ExceptionHandler(MissingServletRequestPartException.class)
     public ResponseEntity<Map<String, String>> handleMissingServletRequestPart(MissingServletRequestPartException ex) {
         Map<String, String> error = new HashMap<>();
@@ -137,10 +138,6 @@ public class GlobalExceptionHandler {
         error.put("status", status.value());
         error.put("cause", status.getReasonPhrase());
         error.put("success",false);
-
         return ResponseEntity.status(status).body(error);
     }
-
 }
-
-

@@ -13,8 +13,8 @@ public interface OrderMapper {
 
    OrderResponseDto toDto(Order order);
 
-   Order toObject(OrderCreateRequestDto productRequestDto);
+   Order toObject(OrderCreateRequestDto orderCreateRequestDto);
 
-   Order toObject(OrderUpdateRequestDto productRequestDto);
+   Order toObject(OrderUpdateRequestDto orderUpdateRequestDto);
 }
 

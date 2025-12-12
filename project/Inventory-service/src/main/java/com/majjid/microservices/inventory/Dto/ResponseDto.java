@@ -1,7 +1,9 @@
-package com.majjid.microservices.order.Dto;
+package com.majjid.microservices.inventory.Dto;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
+
+import javax.management.ObjectName;
 
 @Data
 public class ResponseDto<T> {
@@ -11,7 +13,7 @@ public class ResponseDto<T> {
     private boolean success;
 
     // Private constructor for builder
-    public ResponseDto(T data, String message, HttpStatus status, boolean success) {
+    private ResponseDto(T data, String message, HttpStatus status, boolean success) {
         this.data = data;
         this.message = message;
         this.status = status;
@@ -34,6 +36,8 @@ public class ResponseDto<T> {
     public static <T> ResponseDto<T> listed(T data, String objectName) {
         return new ResponseDto<>(data, "The " + objectName + " listed with success", HttpStatus.OK, true);
     }
+
+
 
     public static <T> ResponseDto<T> created(T data, String objectName) {
         return new ResponseDto<>(data, "The " + objectName + " created with success", HttpStatus.CREATED, true);
