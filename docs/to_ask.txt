@@ -1,0 +1,18 @@
+
+1- response b template class f openfeign not working  (order service 13/12/2025)
+
+- 7ite decoder by default mtyrefetch fin h ydir mapping l field dyale data 
+
+
+solution 1 :  ✅
+create a custom dto 
+
+
+solution 2 :   ⛔
+use JsonNode || String then create a custom function that maps to custom ResponseDto
+type 
+
+
+
+
+use another lib invented with spring boot  
