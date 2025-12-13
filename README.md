@@ -164,7 +164,7 @@ These components live outside the application code but are critical for its oper
 
 ## Step-by-Step: Setting up the Product Service
 
-![Spring Initializr Setup](docs/Spring%20Boot%20Microservices%20Tutorial%20-%20Part%201%20-%20Building%20Services.md/image/part1_building_services/1763986715951.png)
+![Spring Initializr Setup](./image/project_service_setup.png)
 
 To bootstrap our **Product Service**, we use **Spring Initializr** (start.spring.io). This tool generates a production-ready project structure with all the necessary build configurations.
 
