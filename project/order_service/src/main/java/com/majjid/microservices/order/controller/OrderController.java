@@ -38,14 +38,20 @@ ResponseEntity<ResponseDto<OrderResponseDto>> placeAnOrder(@Valid @RequestBody O
         return  ResponseEntity.status(orderResponseDto.getStatus()).body(orderResponseDto);
 
 }
+@PostMapping("{orderId}/cancel")
+ResponseEntity<ResponseDto<OrderResponseDto>> cancelAnOrder(@PathVariable Integer orderId) {
+    ResponseDto<OrderResponseDto> orderResponseDto = orderService.cancelAnOrder(orderId);
+    return  ResponseEntity.status(orderResponseDto.getStatus()).body(orderResponseDto);
 
+}
+/*
     @PutMapping("{orderId}")
     ResponseEntity<ResponseDto<OrderResponseDto>> updateAnOrder(@Valid @PathVariable Integer orderId, OrderUpdateRequestDto orderUpdateRequestDto) {
         ResponseDto<OrderResponseDto> orderResponseDto = orderService.updateAnOrder(orderId, orderUpdateRequestDto);
 
         return ResponseEntity.status(orderResponseDto.getStatus()).body(orderResponseDto);
     }
-
+*/
     @DeleteMapping("{orderId}")
     ResponseEntity<ResponseDto<OrderResponseDto>> deleteAnOrder(@PathVariable Integer orderId) {
         ResponseDto<OrderResponseDto> orderResponseDto = orderService.deleteAnOrder(orderId);

@@ -15,7 +15,7 @@ public interface IOrderService {
     ResponseDto<OrderResponseDto> getOrderById(Integer orderId);
 
     ResponseDto<OrderResponseDto> placeAnOrder(OrderCreateRequestDto orderCreateRequestDto);
-    ResponseDto<OrderResponseDto> updateAnOrder(Integer orderId, OrderUpdateRequestDto orderCreateRequestDto);
+//    ResponseDto<OrderResponseDto> updateAnOrder(Integer orderId, OrderUpdateRequestDto orderCreateRequestDto);
     ResponseDto<OrderResponseDto> deleteAnOrder(Integer orderId);
 
     ResponseDto<OrderResponseDto>  cancelAnOrder(Integer orderId);
