@@ -26,6 +26,7 @@ public class ProductService implements IProductService {
     @Override
     public ResponseDto<ProductResponseDto> createProduct(ProductRequestDto productRequestDto) {
         log.info("Creating new product: {}", productRequestDto.name());
+        log.info("Current user: {}", productRequestDto.current_user_gateway());
 
         Product product = mapper.toObject(productRequestDto);
         product = productRepository.save(product);

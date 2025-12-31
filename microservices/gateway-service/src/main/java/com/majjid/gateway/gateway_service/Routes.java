@@ -1,6 +1,8 @@
 package com.majjid.gateway.gateway_service;
 
 import com.majjid.gateway.gateway_service.config.ServiceResolver;
+import com.majjid.gateway.gateway_service.utils.SecurityUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.server.mvc.common.MvcUtils;
@@ -9,14 +11,13 @@ import org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.function.RequestPredicates;
-import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.RouterFunctions;
-import org.springframework.web.servlet.function.ServerResponse;
+import org.springframework.web.servlet.function.*;
 
 import java.net.URI;
+import java.util.Map;
 
 /**
  * Gateway Routes Configuration
@@ -56,6 +57,9 @@ public class Routes {
     // ==========================================
     // Uses @LoadBalanced RestTemplate to resolve service names via Eureka
 
+
+//    Todo : clean up swagger routes
+//    Todo : check if works with JWT auth in the product service
     @Bean
     @Order(1)
     public RouterFunction<ServerResponse> swaggerRoutes() {
@@ -125,52 +129,52 @@ public class Routes {
     // Main Service Routes (Using LoadBalancerClient for service resolution)
     // ==========================================
     // Uses ServiceResolver to get actual host:port from Eureka
+    /**
+     * Generic method to create a service route.
+     *
+     * @param serviceName name registered in Eureka
+     * @param pathPrefix  API path prefix (e.g., "/api/product/**")
+     */
+    private RouterFunction<ServerResponse> createServiceRoute(String serviceName, String pathPrefix) {
+        return GatewayRouterFunctions.route(serviceName)
+                .route(RequestPredicates.path(pathPrefix), request -> {
+                    String path = request.requestPath().pathWithinApplication().value();
+                    URI resolvedUri = serviceResolver.resolve(serviceName, path);
+                    log.debug(">>> Routing {} request to {}: {}", request.method(), serviceName, resolvedUri);
+
+                    // Forward the Authorization header (JWT) to downstream service
+                    String authHeader = request.headers().firstHeader("Authorization");
+
+                    // Build a new ServerRequest with the same JWT header
+                    ServerRequest newRequest = ServerRequest.from(request)
+                            .header("Authorization", authHeader)
+                            .build();
+
+                    MvcUtils.setRequestUrl(newRequest, resolvedUri);
+                    return HandlerFunctions.http().handle(newRequest);
+                })
+                .build();
+    }
+
 
     @Bean
     @Order(2)
     public RouterFunction<ServerResponse> productServiceRoute() {
         log.info(">>> Registering product-service route with Eureka service discovery");
-        return GatewayRouterFunctions.route("product-service")
-                .route(RequestPredicates.path("/api/product/**"),
-                        request -> {
-                            String path = request.requestPath().pathWithinApplication().value();
-                            URI resolvedUri = serviceResolver.resolve(PRODUCT_SERVICE, path);
-                            log.debug(">>> Routing to product-service: {}", resolvedUri);
-                            MvcUtils.setRequestUrl(request, resolvedUri);
-                            return HandlerFunctions.http().handle(request);
-                        })
-                .build();
+        return createServiceRoute("product-service", "/api/product/**");
     }
 
     @Bean
     @Order(3)
     public RouterFunction<ServerResponse> orderServiceRoute() {
         log.info(">>> Registering order-service route with Eureka service discovery");
-        return GatewayRouterFunctions.route("order-service")
-                .route(RequestPredicates.path("/api/order/**"),
-                        request -> {
-                            String path = request.requestPath().pathWithinApplication().value();
-                            URI resolvedUri = serviceResolver.resolve(ORDER_SERVICE, path);
-                            log.debug(">>> Routing to order-service: {}", resolvedUri);
-                            MvcUtils.setRequestUrl(request, resolvedUri);
-                            return HandlerFunctions.http().handle(request);
-                        })
-                .build();
+        return createServiceRoute("order-service", "/api/order/**");
     }
 
     @Bean
     @Order(4)
     public RouterFunction<ServerResponse> inventoryServiceRoute() {
         log.info(">>> Registering inventory-service route with Eureka service discovery");
-        return GatewayRouterFunctions.route("inventory-service")
-                .route(RequestPredicates.path("/api/inventory/**"),
-                        request -> {
-                            String path = request.requestPath().pathWithinApplication().value();
-                            URI resolvedUri = serviceResolver.resolve(INVENTORY_SERVICE, path);
-                            log.debug(">>> Routing to inventory-service: {}", resolvedUri);
-                            MvcUtils.setRequestUrl(request, resolvedUri);
-                            return HandlerFunctions.http().handle(request);
-                        })
-                .build();
+        return createServiceRoute("inventory-service", "/api/inventory/**");
     }
 }
