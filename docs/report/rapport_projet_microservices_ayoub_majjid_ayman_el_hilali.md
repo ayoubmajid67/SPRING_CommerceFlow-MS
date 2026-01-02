@@ -1,38 +1,55 @@
 <div align="center">
 
-# ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR
-## Centre 2, Rabat
+<table width="100%">
+<tr>
+<td width="50%" align="left">
+<img src="imgs/EMSILOGO.png" alt="EMSI Logo" width="200"/>
+</td>
+<td width="50%" align="right">
+<img src="imgs/HONORIS.png" alt="Honoris Logo" width="200"/>
+</td>
+</tr>
+</table>
 
----
+`<br/><br/>``<br/>`
 
-### RAPPORT DE PROJET DE FIN D'ANNÉE
+# Rapport de projet
 
-**Filière : Ingénierie Informatique et Réseaux (5IIR)**
+**5ème année**
+
+**Ingénierie Informatique et Réseaux**
+
+`<br/><br/>`
+
+**Sous le thème**
+
+<br/>
 
 ---
 
 # SPRING_CommerceFlow-MS
 
-## Conception et Développement d'une Plateforme E-Commerce
-## Basée sur une Architecture Microservices
+## Conception et Développement d'une Plateforme E-Commerce Basée sur une Architecture Microservices
 
 ---
+
+`<br/><br/>`
 
 **Réalisé par :**
 
-| | |
-|:---:|:---:|
-| **MAJJID Ayoub** | **EL HILALI Ayman** |
+**MAJJID Ayoub**
 
----
+**EL HILALI Ayman**
+
+<br/>
 
 **Encadré par :**
 
-**Prof. Hatim JAADOUNI**
+**Tuteur de l'école : Prof. Hatim JAADOUNI**
 
----
+`<br/><br/>`
 
-**Année Universitaire : 2024-2025**
+**Année Universitaire : 2025-2026**
 
 </div>
 
@@ -135,33 +152,34 @@ The system under development includes **4 microservices** (Product, Order, Inven
 
 </div>
 
-| Abréviation | Signification |
-|-------------|---------------|
-| API | Application Programming Interface |
-| CI/CD | Continuous Integration / Continuous Deployment |
-| DTO | Data Transfer Object |
-| E2E | End-to-End |
-| HTTP | HyperText Transfer Protocol |
-| IAM | Identity and Access Management |
-| JPA | Java Persistence API |
-| JSON | JavaScript Object Notation |
-| JWT | JSON Web Token |
-| MVC | Model-View-Controller |
-| NoSQL | Not Only SQL |
-| OAuth | Open Authorization |
-| OIDC | OpenID Connect |
-| ORM | Object-Relational Mapping |
-| RBAC | Role-Based Access Control |
-| REST | Representational State Transfer |
-| SOA | Service-Oriented Architecture |
-| SQL | Structured Query Language |
-| SSO | Single Sign-On |
+| Abréviation | Signification                                  |
+| ------------ | ---------------------------------------------- |
+| API          | Application Programming Interface              |
+| CI/CD        | Continuous Integration / Continuous Deployment |
+| DTO          | Data Transfer Object                           |
+| E2E          | End-to-End                                     |
+| HTTP         | HyperText Transfer Protocol                    |
+| IAM          | Identity and Access Management                 |
+| JPA          | Java Persistence API                           |
+| JSON         | JavaScript Object Notation                     |
+| JWT          | JSON Web Token                                 |
+| MVC          | Model-View-Controller                          |
+| NoSQL        | Not Only SQL                                   |
+| OAuth        | Open Authorization                             |
+| OIDC         | OpenID Connect                                 |
+| ORM          | Object-Relational Mapping                      |
+| RBAC         | Role-Based Access Control                      |
+| REST         | Representational State Transfer                |
+| SOA          | Service-Oriented Architecture                  |
+| SQL          | Structured Query Language                      |
+| SSO          | Single Sign-On                                 |
 
 ---
 
 <div align="center">
 
 # CHAPITRE 1
+
 ## INTRODUCTION ET CONTEXTE
 
 </div>
@@ -174,30 +192,30 @@ Dans le paysage technologique actuel, les exigences des applications d'entrepris
 
 Les architectures monolithiques traditionnelles présentent plusieurs limitations critiques :
 
-| Problème | Impact sur l'Entreprise |
-|----------|-------------------------|
-| **Couplage fort** | Une modification nécessite le redéploiement complet de l'application |
-| **Scalabilité limitée** | Impossible de scaler un seul composant indépendamment |
-| **Technologie unique** | Obligation d'utiliser le même langage pour toute l'application |
-| **Déploiement risqué** | Un bug dans un module affecte l'ensemble du système |
+| Problème                       | Impact sur l'Entreprise                                                |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| **Couplage fort**         | Une modification nécessite le redéploiement complet de l'application |
+| **Scalabilité limitée** | Impossible de scaler un seul composant indépendamment                 |
+| **Technologie unique**    | Obligation d'utiliser le même langage pour toute l'application        |
+| **Déploiement risqué**  | Un bug dans un module affecte l'ensemble du système                   |
 
 > **Question Centrale :** Comment concevoir un système distribué capable de gérer les opérations e-commerce (produits, commandes, inventaire) de manière **scalable**, **résiliente** et **sécurisée**, tout en maintenant une **indépendance technologique** entre les composants ?
 
 ### 1.3 Objectifs du Projet
 
-| Catégorie | Objectif | Métrique de Succès |
-|-----------|----------|-------------------|
-| **Architecture** | Concevoir une architecture microservices robuste | 4+ services indépendants |
-| **Développement** | Implémenter les services métier | CRUD complet par service |
-| **Intégration** | Établir la communication inter-services | OpenFeign fonctionnel |
-| **Sécurité** | Mettre en place OAuth2/OIDC | Keycloak intégré |
-| **Qualité** | Assurer la couverture de tests | > 70% coverage |
+| Catégorie               | Objectif                                         | Métrique de Succès      |
+| ------------------------ | ------------------------------------------------ | ------------------------- |
+| **Architecture**   | Concevoir une architecture microservices robuste | 4+ services indépendants |
+| **Développement** | Implémenter les services métier                | CRUD complet par service  |
+| **Intégration**   | Établir la communication inter-services         | OpenFeign fonctionnel     |
+| **Sécurité**     | Mettre en place OAuth2/OIDC                      | Keycloak intégré        |
+| **Qualité**       | Assurer la couverture de tests                   | > 70% coverage            |
 
 ### 1.4 Périmètre du Projet
 
 <div align="center">
 
-![Périmètre du Projet](image/rapport_projet_microservices/1766618904241.png)
+![1767344455084](image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767344455084.png)
 
 *Figure 1.1 — Périmètre fonctionnel du projet SPRING_CommerceFlow-MS*
 
@@ -216,6 +234,7 @@ Ce rapport est structuré en **7 chapitres** : Introduction → Revue de Littér
 <div align="center">
 
 # CHAPITRE 2
+
 ## REVUE DE LITTÉRATURE ET CONTEXTE TECHNOLOGIQUE
 
 </div>
@@ -247,11 +266,13 @@ L'architecture logicielle a connu une évolution significative au cours des dern
 L'architecture monolithique regroupe toutes les fonctionnalités dans une seule unité déployable.
 
 **Caractéristiques :**
+
 - Base de code unique
 - Déploiement tout-en-un
 - Scaling vertical uniquement
 
 **Limitations :**
+
 - Temps de démarrage long
 - Déploiement risqué
 - Difficile à maintenir à grande échelle
@@ -291,12 +312,12 @@ Le pattern **Model-View-Controller** a apporté une première forme de séparati
 
 SOA a introduit la notion de services réutilisables communiquant via des protocoles standards.
 
-| Aspect | SOA | Microservices |
-|--------|-----|---------------|
-| **Couplage** | Moyenne | Faible |
-| **Granularité** | Services larges | Services fins |
-| **Communication** | ESB centralisé | API REST directe |
-| **Base de données** | Partagée | Par service |
+| Aspect                     | SOA             | Microservices    |
+| -------------------------- | --------------- | ---------------- |
+| **Couplage**         | Moyenne         | Faible           |
+| **Granularité**     | Services larges | Services fins    |
+| **Communication**    | ESB centralisé | API REST directe |
+| **Base de données** | Partagée       | Par service      |
 
 ### 2.1.5 Architecture Microservices
 
@@ -330,6 +351,7 @@ L'architecture microservices décompose l'application en **services autonomes**,
 ```
 
 **Principes Clés :**
+
 1. **Single Responsibility** : Un service = une fonctionnalité métier
 2. **Autonomie** : Chaque service peut être développé/déployé indépendamment
 3. **Décentralisation** : Pas de point central de contrôle
@@ -337,13 +359,13 @@ L'architecture microservices décompose l'application en **services autonomes**,
 
 ### 2.1.6 Tableau Comparatif
 
-| Critère | Monolithique | SOA | Microservices |
-|---------|--------------|-----|---------------|
-| **Déploiement** | Tout ensemble | Par groupe | Par service |
-| **Scaling** | Vertical | Horizontal limité | Horizontal granulaire |
-| **Technologie** | Unique | Variée limitée | Polyglotte |
-| **Équipes** | Centralisée | Par domaine | Par service |
-| **Complexité** | Simple au début | Moyenne | Élevée (infrastructure) |
+| Critère               | Monolithique     | SOA                | Microservices             |
+| ---------------------- | ---------------- | ------------------ | ------------------------- |
+| **Déploiement** | Tout ensemble    | Par groupe         | Par service               |
+| **Scaling**      | Vertical         | Horizontal limité | Horizontal granulaire     |
+| **Technologie**  | Unique           | Variée limitée   | Polyglotte                |
+| **Équipes**     | Centralisée     | Par domaine        | Par service               |
+| **Complexité**  | Simple au début | Moyenne            | Élevée (infrastructure) |
 
 ---
 
@@ -374,6 +396,7 @@ Une application **Cloud-Native** est conçue spécifiquement pour tirer parti de
 Docker permet de packager une application avec toutes ses dépendances dans un **conteneur** isolé.
 
 **Avantages :**
+
 - **Portabilité** : "Build once, run anywhere"
 - **Isolation** : Chaque service dans son environnement
 - **Légèreté** : Partage du kernel de l'hôte
@@ -382,12 +405,12 @@ Docker permet de packager une application avec toutes ses dépendances dans un *
 
 Kubernetes gère le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.
 
-| Composant | Rôle |
-|-----------|------|
-| **Pod** | Plus petite unité déployable |
-| **Service** | Exposition réseau stable |
-| **Deployment** | Gestion du cycle de vie |
-| **Ingress** | Routage HTTP externe |
+| Composant            | Rôle                          |
+| -------------------- | ------------------------------ |
+| **Pod**        | Plus petite unité déployable |
+| **Service**    | Exposition réseau stable      |
+| **Deployment** | Gestion du cycle de vie        |
+| **Ingress**    | Routage HTTP externe           |
 
 ---
 
@@ -395,9 +418,14 @@ Kubernetes gère le déploiement, la mise à l'échelle et la gestion des applic
 
 ### 2.3.1 Spring Boot
 
+<div >
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343116370.png" width="50" height="50">
+</div>
+
 **Spring Boot** simplifie la création d'applications Spring production-ready.
 
 **Caractéristiques :**
+
 - Configuration automatique (Auto-configuration)
 - Serveur embarqué (Tomcat)
 - Actuators pour le monitoring
@@ -405,14 +433,18 @@ Kubernetes gère le déploiement, la mise à l'échelle et la gestion des applic
 
 ### 2.3.2 Spring Cloud
 
+<div >
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343161746.png" width="50" height="50">
+</div>
+
 **Spring Cloud** fournit les outils pour construire des systèmes distribués.
 
-| Composant | Fonction |
-|-----------|----------|
-| **Spring Cloud Gateway** | API Gateway et routage |
-| **Spring Cloud OpenFeign** | Client HTTP déclaratif |
-| **Spring Cloud Config** | Configuration centralisée |
-| **Eureka** | Service Discovery |
+| Composant                        | Fonction                   |
+| -------------------------------- | -------------------------- |
+| **Spring Cloud Gateway**   | API Gateway et routage     |
+| **Spring Cloud OpenFeign** | Client HTTP déclaratif    |
+| **Spring Cloud Config**    | Configuration centralisée |
+| **Eureka**                 | Service Discovery          |
 
 ---
 
@@ -424,16 +456,21 @@ Dans une architecture microservices, la sécurité doit être gérée de manièr
 
 ### 2.4.2 OAuth 2.0 et OpenID Connect
 
-| Protocole | Rôle |
-|-----------|------|
-| **OAuth 2.0** | Autorisation (accès aux ressources) |
+| Protocole                | Rôle                                         |
+| ------------------------ | --------------------------------------------- |
+| **OAuth 2.0**      | Autorisation (accès aux ressources)          |
 | **OpenID Connect** | Authentification (identité de l'utilisateur) |
 
 ### 2.4.3 Keycloak
 
+<div >
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343198012.png" width="50" height="50">
+</div>
+
 **Keycloak** est une solution IAM open-source développée par Red Hat.
 
 **Fonctionnalités :**
+
 - Single Sign-On (SSO)
 - Identity Brokering (Google, GitHub, LDAP)
 - Gestion des utilisateurs et rôles
@@ -450,6 +487,7 @@ Ce chapitre a présenté l'évolution des architectures logicielles, des systèm
 <div align="center">
 
 # CHAPITRE 3
+
 ## ANALYSE ET EXPRESSION DES BESOINS
 
 </div>
@@ -458,55 +496,55 @@ Ce chapitre a présenté l'évolution des architectures logicielles, des systèm
 
 Dans le contexte e-commerce traditionnel, les solutions monolithiques présentent les limitations suivantes :
 
-| Problème Identifié | Impact Métier |
-|--------------------|---------------|
-| Indisponibilité lors des mises à jour | Perte de revenus |
-| Scalabilité limitée pendant les pics | Mauvaise expérience utilisateur |
-| Couplage des équipes de développement | Cycle de release rallongé |
-| Single point of failure | Risque d'arrêt total |
+| Problème Identifié                    | Impact Métier                   |
+| --------------------------------------- | -------------------------------- |
+| Indisponibilité lors des mises à jour | Perte de revenus                 |
+| Scalabilité limitée pendant les pics  | Mauvaise expérience utilisateur |
+| Couplage des équipes de développement | Cycle de release rallongé       |
+| Single point of failure                 | Risque d'arrêt total            |
 
 ## 3.2 Besoins Fonctionnels
 
 ### 3.2.1 Gestion des Produits (Product Service)
 
-| ID | Exigence | Priorité | Statut |
-|----|----------|----------|--------|
-| FR-P-01 | Créer un nouveau produit | Haute | ✅ Implémenté |
-| FR-P-02 | Consulter les détails d'un produit | Haute | ✅ Implémenté |
-| FR-P-03 | Mettre à jour les informations produit | Moyenne | ✅ Implémenté |
-| FR-P-04 | Supprimer un produit | Moyenne | ✅ Implémenté |
-| FR-P-05 | Lister tous les produits | Haute | ✅ Implémenté |
+| ID      | Exigence                                | Priorité | Statut          |
+| ------- | --------------------------------------- | --------- | --------------- |
+| FR-P-01 | Créer un nouveau produit               | Haute     | ✅ Implémenté |
+| FR-P-02 | Consulter les détails d'un produit     | Haute     | ✅ Implémenté |
+| FR-P-03 | Mettre à jour les informations produit | Moyenne   | ✅ Implémenté |
+| FR-P-04 | Supprimer un produit                    | Moyenne   | ✅ Implémenté |
+| FR-P-05 | Lister tous les produits                | Haute     | ✅ Implémenté |
 
 ### 3.2.2 Gestion des Commandes (Order Service)
 
-| ID | Exigence | Priorité | Statut |
-|----|----------|----------|--------|
-| FR-O-01 | Passer une nouvelle commande | Haute | ✅ Implémenté |
-| FR-O-02 | Valider la disponibilité avant commande | Haute | ✅ Implémenté |
-| FR-O-03 | Annuler une commande | Haute | ✅ Implémenté |
-| FR-O-04 | Consulter les détails d'une commande | Haute | ✅ Implémenté |
-| FR-O-05 | Lister toutes les commandes | Moyenne | ✅ Implémenté |
+| ID      | Exigence                                 | Priorité | Statut          |
+| ------- | ---------------------------------------- | --------- | --------------- |
+| FR-O-01 | Passer une nouvelle commande             | Haute     | ✅ Implémenté |
+| FR-O-02 | Valider la disponibilité avant commande | Haute     | ✅ Implémenté |
+| FR-O-03 | Annuler une commande                     | Haute     | ✅ Implémenté |
+| FR-O-04 | Consulter les détails d'une commande    | Haute     | ✅ Implémenté |
+| FR-O-05 | Lister toutes les commandes              | Moyenne   | ✅ Implémenté |
 
 ### 3.2.3 Gestion de l'Inventaire (Inventory Service)
 
-| ID | Exigence | Priorité | Statut |
-|----|----------|----------|--------|
-| FR-I-01 | Vérifier la disponibilité en stock | Haute | ✅ Implémenté |
-| FR-I-02 | Diminuer le stock (vente) | Haute | ✅ Implémenté |
-| FR-I-03 | Augmenter le stock (achat) | Haute | ✅ Implémenté |
-| FR-I-04 | Créer un enregistrement d'inventaire | Moyenne | ✅ Implémenté |
-| FR-I-05 | Mettre à jour l'inventaire | Moyenne | ✅ Implémenté |
+| ID      | Exigence                              | Priorité | Statut          |
+| ------- | ------------------------------------- | --------- | --------------- |
+| FR-I-01 | Vérifier la disponibilité en stock  | Haute     | ✅ Implémenté |
+| FR-I-02 | Diminuer le stock (vente)             | Haute     | ✅ Implémenté |
+| FR-I-03 | Augmenter le stock (achat)            | Haute     | ✅ Implémenté |
+| FR-I-04 | Créer un enregistrement d'inventaire | Moyenne   | ✅ Implémenté |
+| FR-I-05 | Mettre à jour l'inventaire           | Moyenne   | ✅ Implémenté |
 
 ## 3.3 Besoins Non-Fonctionnels
 
-| Catégorie | Exigence | Cible |
-|-----------|----------|-------|
-| **Performance** | Temps de réponse API | < 200ms (95ème percentile) |
-| **Scalabilité** | Utilisateurs concurrents | 1000+ |
-| **Disponibilité** | Uptime système | 99.9% |
-| **Fiabilité** | Taux d'erreur | < 0.1% |
-| **Maintenabilité** | Couverture de tests | > 70% |
-| **Sécurité** | Chiffrement | TLS 1.3 |
+| Catégorie                | Exigence                 | Cible                       |
+| ------------------------- | ------------------------ | --------------------------- |
+| **Performance**     | Temps de réponse API    | < 200ms (95ème percentile) |
+| **Scalabilité**    | Utilisateurs concurrents | 1000+                       |
+| **Disponibilité**  | Uptime système          | 99.9%                       |
+| **Fiabilité**      | Taux d'erreur            | < 0.1%                      |
+| **Maintenabilité** | Couverture de tests      | > 70%                       |
+| **Sécurité**      | Chiffrement              | TLS 1.3                     |
 
 ## 3.4 Acteurs du Système
 
@@ -530,12 +568,12 @@ Dans le contexte e-commerce traditionnel, les solutions monolithiques présenten
 
 ## 3.5 Contraintes du Projet
 
-| Type | Contrainte |
-|------|------------|
-| **Technique** | Utilisation de Spring Boot 4.0 et Java 21 |
-| **Technique** | Persistance polyglotte (MongoDB + MySQL) |
-| **Temporelle** | Livraison en Janvier 2025 |
-| **Budget** | Outils open-source uniquement |
+| Type                 | Contrainte                                |
+| -------------------- | ----------------------------------------- |
+| **Technique**  | Utilisation de Spring Boot 4.0 et Java 21 |
+| **Technique**  | Persistance polyglotte (MongoDB + MySQL)  |
+| **Temporelle** | Livraison en Janvier 2025                 |
+| **Budget**     | Outils open-source uniquement             |
 
 ## 3.6 Conclusion du Chapitre
 
@@ -546,6 +584,7 @@ L'analyse des besoins a permis d'identifier 15 exigences fonctionnelles réparti
 <div align="center">
 
 # CHAPITRE 4
+
 ## CONCEPTION DU SYSTÈME
 
 </div>
@@ -561,7 +600,7 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 ### 4.1.2 Diagramme d'Architecture
 
-![Architecture du Projet SPRING_CommerceFlow-MS](../image/project_arch.png)
+![1767344455084](image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767344455084.png)
 
 *Figure 4.1 : Architecture globale du système montrant les 4 microservices, leurs bases de données respectives, et les composants d'infrastructure*
 
@@ -603,13 +642,14 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 #### 🛍️ **Product Service** (Port 8080)
 
-| Aspect | Détail |
-|--------|--------|
-| **Objectif** | Gestion du catalogue produits |
-| **Base de données** | MongoDB (NoSQL) |
+| Aspect                     | Détail                                                |
+| -------------------------- | ------------------------------------------------------ |
+| **Objectif**         | Gestion du catalogue produits                          |
+| **Base de données** | MongoDB (NoSQL)                                        |
 | **Justification DB** | Schéma flexible pour les attributs produits variables |
 
 **Fonctionnalités Clés :**
+
 - Opérations CRUD complètes sur les produits
 - Attributs produits flexibles (sans schéma rigide)
 - Performance de lecture optimisée
@@ -618,13 +658,14 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 #### 📦 **Order Service** (Port 8081)
 
-| Aspect | Détail |
-|--------|--------|
-| **Objectif** | Traitement des commandes clients |
-| **Base de données** | MySQL (conformité ACID) |
-| **Dépendances** | Inventory Service via OpenFeign |
+| Aspect                     | Détail                          |
+| -------------------------- | -------------------------------- |
+| **Objectif**         | Traitement des commandes clients |
+| **Base de données** | MySQL (conformité ACID)         |
+| **Dépendances**     | Inventory Service via OpenFeign  |
 
 **Fonctionnalités Clés :**
+
 - Placement de commandes
 - Annulation de commandes
 - Validation de l'inventaire avant confirmation
@@ -634,13 +675,14 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 #### 📊 **Inventory Service** (Port 8082)
 
-| Aspect | Détail |
-|--------|--------|
-| **Objectif** | Suivi des niveaux de stock |
-| **Base de données** | MySQL (intégrité transactionnelle) |
-| **Transactions** | Supportées pour garantir la cohérence |
+| Aspect                     | Détail                                 |
+| -------------------------- | --------------------------------------- |
+| **Objectif**         | Suivi des niveaux de stock              |
+| **Base de données** | MySQL (intégrité transactionnelle)    |
+| **Transactions**     | Supportées pour garantir la cohérence |
 
 **Fonctionnalités Clés :**
+
 - Gestion des stocks (création, mise à jour)
 - Opérations de vente (décrémentation)
 - Opérations d'achat (incrémentation)
@@ -650,13 +692,14 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 #### 🔔 **Notification Service** (Port 8083) - *Travail Futur*
 
-| Aspect | Détail |
-|--------|--------|
-| **Objectif** | Envoi de notifications |
-| **Technologie** | Consommateur Kafka |
-| **Type** | Event-driven architecture |
+| Aspect                | Détail                   |
+| --------------------- | ------------------------- |
+| **Objectif**    | Envoi de notifications    |
+| **Technologie** | Consommateur Kafka        |
+| **Type**        | Event-driven architecture |
 
 **Fonctionnalités Clés (Planifiées) :**
+
 - Traitement asynchrone des messages
 - Notifications Email/SMS
 - Architecture orientée événements
@@ -665,27 +708,27 @@ Notre plateforme **SPRING_CommerceFlow-MS** est conçue selon une architecture m
 
 ### 4.1.4 Composants d'Infrastructure
 
-| Composant | Technologie | Rôle |
-|-----------|-------------|------|
-| **API Gateway** | Spring Cloud Gateway | Routage, sécurité centralisée, load balancing |
-| **Service Discovery** | Eureka | Enregistrement dynamique des services |
-| **Message Broker** | Apache Kafka | Communication asynchrone |
-| **Monitoring** | Prometheus + Grafana | Métriques et tableaux de bord |
-| **Tracing** | Zipkin/Tempo | Traçage distribué |
-| **Logging** | Loki | Journalisation centralisée |
-| **Conteneurisation** | Docker | Isolation des services |
-| **Orchestration** | Kubernetes | Gestion des conteneurs |
+| Composant                   | Technologie          |                                                           Icon                                                           | Rôle                                            |
+| --------------------------- | -------------------- | :----------------------------------------------------------------------------------------------------------------------: | ------------------------------------------------ |
+| **API Gateway**       | Spring Cloud Gateway | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343232997.png" width="24" height="24">` | Routage, sécurité centralisée, load balancing |
+| **Service Discovery** | Eureka               | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343311953.png" width="24" height="24">` | Enregistrement dynamique des services            |
+| **Message Broker**    | Apache Kafka         | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343292655.png" width="24" height="24">` | Communication asynchrone                         |
+| **Monitoring**        | Prometheus + Grafana | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343343247.png" width="24" height="24">` | Métriques et tableaux de bord                   |
+| **Tracing**           | Zipkin/Tempo         | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343379009.png" width="24" height="24">` | Traçage distribué                              |
+| **Logging**           | Loki                 | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343428791.png" width="24" height="24">` | Journalisation centralisée                      |
+| **Conteneurisation**  | Docker               | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343446980.png" width="24" height="24">` | Isolation des services                           |
+| **Orchestration**     | Kubernetes           | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343460764.png" width="24" height="24">` | Gestion des conteneurs                           |
 
 ### 4.1.5 Justification des Choix Technologiques
 
-| Composant | Technologie | Justification |
-|-----------|-------------|---------------|
-| **Product Service** | MongoDB | Schéma flexible pour les attributs produits variables |
-| **Order Service** | MySQL | Conformité ACID pour les transactions financières |
-| **Inventory Service** | MySQL | Intégrité transactionnelle pour les mouvements de stock |
-| **API Gateway** | Spring Cloud Gateway | Routage, sécurité centralisée, filtrage |
-| **Communication** | OpenFeign | Client HTTP déclaratif et type-safe |
-| **Sécurité** | Keycloak | IAM open-source avec OAuth2/OIDC |
+| Composant                   | Technologie          |                                                           Icon                                                           | Justification                                             |
+| --------------------------- | -------------------- | :----------------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------- |
+| **Product Service**   | MongoDB              | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343491100.png" width="24" height="24">` | Schéma flexible pour les attributs produits variables    |
+| **Order Service**     | MySQL                | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343510409.png" width="24" height="24">` | Conformité ACID pour les transactions financières       |
+| **Inventory Service** | MySQL                | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343514208.png" width="24" height="24">` | Intégrité transactionnelle pour les mouvements de stock |
+| **API Gateway**       | Spring Cloud Gateway | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343232997.png" width="24" height="24">` | Routage, sécurité centralisée, filtrage                |
+| **Communication**     | OpenFeign            | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343232997.png" width="24" height="24">` | Client HTTP déclaratif et type-safe                      |
+| **Sécurité**        | Keycloak             | `<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767343599990.png" width="24" height="24">` | IAM open-source avec OAuth2/OIDC                          |
 
 ---
 
@@ -737,12 +780,12 @@ Chaque microservice suit une **architecture en couches** standardisée.
 
 **Rôles des Couches :**
 
-| Couche | Responsabilité |
-|--------|----------------|
+| Couche               | Responsabilité                               |
+| -------------------- | --------------------------------------------- |
 | **Controller** | Point d'entrée HTTP, validation, mapping DTO |
-| **Service** | Logique métier, orchestration, transactions |
-| **Repository** | Abstraction de l'accès aux données |
-| **Entity** | Mapping objet-relationnel |
+| **Service**    | Logique métier, orchestration, transactions  |
+| **Repository** | Abstraction de l'accès aux données          |
+| **Entity**     | Mapping objet-relationnel                     |
 
 ---
 
@@ -750,13 +793,14 @@ Chaque microservice suit une **architecture en couches** standardisée.
 
 ### 4.3.1 Product Service
 
-| Aspect | Détail |
-|--------|--------|
-| **Port** | 8080 |
-| **Base de données** | MongoDB (NoSQL) |
-| **Fonction** | Gestion du catalogue produits |
+| Aspect                     | Détail                       |
+| -------------------------- | ----------------------------- |
+| **Port**             | 8080                          |
+| **Base de données** | MongoDB (NoSQL)               |
+| **Fonction**         | Gestion du catalogue produits |
 
 **Endpoints API :**
+
 - `POST /products` - Créer un produit
 - `GET /products` - Lister les produits
 - `GET /products/{id}` - Détails d'un produit
@@ -765,14 +809,15 @@ Chaque microservice suit une **architecture en couches** standardisée.
 
 ### 4.3.2 Order Service
 
-| Aspect | Détail |
-|--------|--------|
-| **Port** | 8081 |
-| **Base de données** | MySQL (ACID) |
-| **Fonction** | Gestion des commandes |
-| **Dépendance** | Inventory Service (via OpenFeign) |
+| Aspect                     | Détail                           |
+| -------------------------- | --------------------------------- |
+| **Port**             | 8081                              |
+| **Base de données** | MySQL (ACID)                      |
+| **Fonction**         | Gestion des commandes             |
+| **Dépendance**      | Inventory Service (via OpenFeign) |
 
 **Endpoints API :**
+
 - `POST /orders` - Passer une commande
 - `GET /orders` - Lister les commandes
 - `GET /orders/{id}` - Détails d'une commande
@@ -780,13 +825,14 @@ Chaque microservice suit une **architecture en couches** standardisée.
 
 ### 4.3.3 Inventory Service
 
-| Aspect | Détail |
-|--------|--------|
-| **Port** | 8082 |
-| **Base de données** | MySQL (ACID) |
-| **Fonction** | Gestion des stocks |
+| Aspect                     | Détail            |
+| -------------------------- | ------------------ |
+| **Port**             | 8082               |
+| **Base de données** | MySQL (ACID)       |
+| **Fonction**         | Gestion des stocks |
 
 **Endpoints API :**
+
 - `POST /api/inventory` - Créer un stock
 - `GET /api/inventory/{sku}` - Vérifier la disponibilité
 - `POST /api/inventory/{sku}/sell` - Vendre (décrémenter)
@@ -870,13 +916,13 @@ CREATE TABLE t_inventory (
 
 ## 4.6 Design Patterns Utilisés
 
-| Pattern | Application |
-|---------|-------------|
-| **Repository** | Abstraction de l'accès aux données |
-| **DTO** | Transfert de données entre couches |
-| **Mapper** | Conversion Entity ↔ DTO |
-| **Service Layer** | Encapsulation de la logique métier |
-| **API Gateway** | Point d'entrée unique |
+| Pattern                 | Application                          |
+| ----------------------- | ------------------------------------ |
+| **Repository**    | Abstraction de l'accès aux données |
+| **DTO**           | Transfert de données entre couches  |
+| **Mapper**        | Conversion Entity ↔ DTO             |
+| **Service Layer** | Encapsulation de la logique métier  |
+| **API Gateway**   | Point d'entrée unique               |
 
 ## 4.7 Conclusion du Chapitre
 
@@ -887,6 +933,7 @@ La conception du système repose sur une architecture microservices bien structu
 <div align="center">
 
 # CHAPITRE 5
+
 ## RÉALISATION ET IMPLÉMENTATION
 
 </div>
@@ -895,16 +942,16 @@ La conception du système repose sur une architecture microservices bien structu
 
 ### 5.1.1 Stack Technique
 
-| Catégorie | Technologie | Version | Rôle |
-|-----------|-------------|---------|------|
-| **Framework** | Spring Boot | 4.0.0 | Framework applicatif |
-| **Cloud** | Spring Cloud | 2025.1.0 | Outils distribués |
-| **Langage** | Java | 21 | Langage de programmation |
-| **Base NoSQL** | MongoDB | Latest | Stockage produits |
-| **Base SQL** | MySQL | 8.x | Stockage commandes/inventaire |
-| **Migrations** | Flyway | - | Versioning du schéma |
-| **Build** | Maven | 3.9+ | Gestion des dépendances |
-| **Conteneurs** | Docker | Latest | Conteneurisation |
+| Catégorie           | Technologie  | Version  | Rôle                         |
+| -------------------- | ------------ | -------- | ----------------------------- |
+| **Framework**  | Spring Boot  | 4.0.0    | Framework applicatif          |
+| **Cloud**      | Spring Cloud | 2025.1.0 | Outils distribués            |
+| **Langage**    | Java         | 21       | Langage de programmation      |
+| **Base NoSQL** | MongoDB      | Latest   | Stockage produits             |
+| **Base SQL**   | MySQL        | 8.x      | Stockage commandes/inventaire |
+| **Migrations** | Flyway       | -        | Versioning du schéma         |
+| **Build**      | Maven        | 3.9+     | Gestion des dépendances      |
+| **Conteneurs** | Docker       | Latest   | Conteneurisation              |
 
 ### 5.1.2 Dépendances Clés
 
@@ -950,15 +997,13 @@ ResponseEntity<InventoryResponse> response =
     restTemplate.getForEntity(url, InventoryResponse.class);
 ```
 
-### 5.2.2 Solution avec OpenFeign
-
-OpenFeign offre une **approche déclarative** et type-safe :
+### 5.2.2 Solution avec OpenFeignOpenFeign offre une **approche déclarative** et type-safe :
 
 ```java
 // ✅ Nouvelle approche avec OpenFeign
 @FeignClient(name = "inventory-service", url = "${inventory.service.url}")
 public interface InventoryClient {
-    
+  
     @GetMapping("/api/inventory/{skuCode}")
     InventoryResponse checkInventory(@PathVariable String skuCode);
 }
@@ -966,12 +1011,12 @@ public interface InventoryClient {
 
 ### 5.2.3 Avantages
 
-| Avantage | Description |
-|----------|-------------|
-| **Déclaratif** | Interface simple avec annotations |
-| **Type-safe** | Vérification à la compilation |
-| **Testable** | Facilement mockable avec WireMock |
-| **Intégré** | Support natif de la gestion d'erreurs |
+| Avantage              | Description                           |
+| --------------------- | ------------------------------------- |
+| **Déclaratif** | Interface simple avec annotations     |
+| **Type-safe**   | Vérification à la compilation       |
+| **Testable**    | Facilement mockable avec WireMock     |
+| **Intégré**   | Support natif de la gestion d'erreurs |
 
 ---
 
@@ -1020,9 +1065,468 @@ public class Routes {
 
 ---
 
-## 5.4 Sécurité avec Keycloak
+## 5.4 Service Discovery avec Eureka
 
-### 5.4.1 Architecture de Sécurité
+### 5.4.1 Problématique du Service Discovery
+
+Dans une architecture microservices, les services **scalent dynamiquement**, changeant leurs adresses IP et ports. Coder en dur ces adresses (ex: `localhost:8080`) est **fragile** et **non maintenable**.
+
+| Problème                         | Impact                        | Solution                 |
+| --------------------------------- | ----------------------------- | ------------------------ |
+| **Adresses codées en dur** | Impossible de scaler          | Service Discovery        |
+| **Instances multiples**     | Pas de distribution de charge | Load Balancing           |
+| **Changements d'adresse**   | Redéploiement requis         | Enregistrement dynamique |
+| **Défaillances**           | Pas de failover               | Health checks            |
+
+### 5.4.2 Architecture Eureka
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    ARCHITECTURE EUREKA SERVICE DISCOVERY                         │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│                           ┌──────────────────┐                                  │
+│                           │  EUREKA SERVER   │                                  │
+│                           │   Port: 8761     │                                  │
+│                           │  (Registry)      │                                  │
+│                           └────────┬─────────┘                                  │
+│                                    │                                            │
+│              ┌─────────────────────┼─────────────────────┐                     │
+│              │                     │                     │                      │
+│              │ Registration        │ Registration        │ Registration         │
+│              │ + Heartbeat         │ + Heartbeat         │ + Heartbeat          │
+│              │                     │                     │                      │
+│        ┌─────▼─────┐         ┌─────▼─────┐         ┌─────▼─────┐               │
+│        │  PRODUCT  │         │   ORDER   │         │ INVENTORY │               │
+│        │  SERVICE  │         │  SERVICE  │         │  SERVICE  │               │
+│        │  :8080    │         │   :8081   │         │   :8082   │               │
+│        └───────────┘         └───────────┘         └───────────┘               │
+│                                                                                  │
+│        ┌─────────────────────────────────────────────────────────┐              │
+│        │              API GATEWAY (Eureka Client)                │              │
+│        │  • Récupère le registre des services                   │              │
+│        │  • Utilise LoadBalancerClient pour sélectionner        │              │
+│        │    une instance                                         │              │
+│        └─────────────────────────────────────────────────────────┘              │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Figure : Espace réservé pour diagramme architecture Eureka**
+
+### 5.4.3 Configuration Eureka Server
+
+```properties
+# Eureka Server Configuration
+server.port=8761
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+```
+
+```java
+@SpringBootApplication
+@EnableEurekaServer
+public class EurekaServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(EurekaServiceApplication.class, args);
+    }
+}
+```
+
+### 5.4.4 Configuration Eureka Client (Services)
+
+Chaque microservice s'enregistre auprès d'Eureka :
+
+```properties
+# Product Service Configuration
+spring.application.name=product-service
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+```
+
+---
+
+## 5.5 Load Balancing Client-Side
+
+### 5.5.1 Pourquoi le Load Balancing ?
+
+Eureka répond à la question : **"Quelles instances existent ?"**
+
+Le Load Balancer répond à : **"Quelle instance utiliser MAINTENANT ?"**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    EUREKA vs LOAD BALANCER                                       │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   EUREKA (Service Registry)              LOAD BALANCER (Instance Selector)      │
+│   ───────────────────────                ──────────────────────────────         │
+│                                                                                  │
+│   Question: "Qui existe ?"               Question: "Qui choisir ?"              │
+│                                                                                  │
+│   Réponse:                               Réponse:                               │
+│   • product-service:                     • Sélectionne 192.168.1.5:8080         │
+│     - 192.168.1.5:8080                   • Algorithme: Round-Robin              │
+│     - 192.168.1.6:8080                   • Prochaine requête: 192.168.1.6:8080  │
+│     - 192.168.1.7:8080                                                          │
+│                                                                                  │
+│   Fréquence: Périodique (30s)           Fréquence: Par requête                 │
+│   Type: Cache local                      Type: Sélection dynamique              │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.5.2 Spring Cloud LoadBalancer
+
+**Spring Cloud LoadBalancer** est une bibliothèque de load balancing **client-side** :
+
+| Caractéristique                 | Valeur                                   |
+| -------------------------------- | ---------------------------------------- |
+| **Type**                   | Bibliothèque Java (pas un service)      |
+| **Localisation**           | À l'intérieur de l'application Gateway |
+| **Communication**          | Appels de méthodes Java (pas HTTP)      |
+| **Stratégie par défaut** | Round-Robin                              |
+
+### 5.5.3 Dépendances Maven
+
+```xml
+<!-- Eureka Client -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+<!-- Load Balancer -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+</dependency>
+```
+
+---
+
+## 5.6 Implémentation du ServiceResolver
+
+### 5.6.1 Problème avec Gateway MVC
+
+Dans **Gateway MVC**, le schéma `lb://` n'est **pas automatiquement supporté** comme dans Gateway Reactive.
+
+```java
+// ❌ Ne fonctionne PAS directement dans Gateway MVC
+URI.create("lb://product-service/api/product")
+```
+
+### 5.6.2 Solution : ServiceResolver Custom
+
+Nous avons créé un composant `ServiceResolver` qui utilise `LoadBalancerClient` :
+
+```java
+@Component
+public class ServiceResolver {
+
+    private final LoadBalancerClient loadBalancerClient;
+
+    public ServiceResolver(LoadBalancerClient loadBalancerClient) {
+        this.loadBalancerClient = loadBalancerClient;
+    }
+
+    /**
+     * Résout un nom de service en URI physique via Eureka.
+     *
+     * @param serviceName Nom logique (ex: "product-service")
+     * @param path        Chemin à ajouter (ex: "/api/product")
+     * @return URI résolu (ex: "http://192.168.1.5:8080/api/product")
+     */
+    public URI resolve(String serviceName, String path) {
+        // 1. Demander au LoadBalancer de choisir une instance
+        ServiceInstance instance = loadBalancerClient.choose(serviceName);
+    
+        if (instance == null) {
+            throw new IllegalStateException(
+                "No instance available for service: " + serviceName
+            );
+        }
+    
+        // 2. Construire l'URI complet
+        return URI.create(instance.getUri().toString() + path);
+    }
+}
+```
+
+### 5.6.3 Flux de Résolution
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    FLUX DE RÉSOLUTION DE SERVICE                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   1. Requête Client                                                             │
+│      GET /api/product/1                                                         │
+│      │                                                                           │
+│      ▼                                                                           │
+│   2. Gateway Route Matching                                                     │
+│      Path: /api/product/**                                                      │
+│      Service: "product-service"                                                 │
+│      │                                                                           │
+│      ▼                                                                           │
+│   3. ServiceResolver.resolve("product-service", "/api/product/1")               │
+│      │                                                                           │
+│      ▼                                                                           │
+│   4. LoadBalancerClient.choose("product-service")                               │
+│      │                                                                           │
+│      ├─► Consulte le cache Eureka local                                         │
+│      │   Instances disponibles:                                                 │
+│      │   - localhost:8080 (UP)                                                  │
+│      │   - localhost:8090 (UP)                                                  │
+│      │                                                                           │
+│      ├─► Applique Round-Robin                                                   │
+│      │   Sélectionne: localhost:8080                                            │
+│      │                                                                           │
+│      ▼                                                                           │
+│   5. Retourne ServiceInstance                                                   │
+│      URI: http://localhost:8080                                                 │
+│      │                                                                           │
+│      ▼                                                                           │
+│   6. Construction URI finale                                                    │
+│      http://localhost:8080/api/product/1                                        │
+│      │                                                                           │
+│      ▼                                                                           │
+│   7. MvcUtils.setRequestUrl(request, resolvedUri)                               │
+│      │                                                                           │
+│      ▼                                                                           │
+│   8. HandlerFunctions.http().handle(request)                                    │
+│      │                                                                           │
+│      ▼                                                                           │
+│   9. Requête HTTP vers Product Service                                          │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Figure : Espace réservé pour diagramme flux de résolution**
+
+---
+
+## 5.7 Intégration dans Routes.java
+
+### 5.7.1 Configuration des Routes avec Eureka
+
+```java
+@Configuration
+public class Routes {
+
+    private static final String PRODUCT_SERVICE = "product-service";
+    private static final String ORDER_SERVICE = "order-service";
+    private static final String INVENTORY_SERVICE = "inventory-service";
+
+    private final ServiceResolver serviceResolver;
+
+    public Routes(ServiceResolver serviceResolver) {
+        this.serviceResolver = serviceResolver;
+    }
+
+    /**
+     * Méthode générique pour créer une route de service.
+     */
+    private RouterFunction<ServerResponse> createServiceRoute(
+        String serviceName, 
+        String pathPrefix
+    ) {
+        return GatewayRouterFunctions.route(serviceName)
+            .route(RequestPredicates.path(pathPrefix), request -> {
+                // 1. Extraire le chemin de la requête
+                String path = request.requestPath()
+                    .pathWithinApplication()
+                    .value();
+            
+                // 2. Résoudre le service via Eureka
+                URI resolvedUri = serviceResolver.resolve(serviceName, path);
+            
+                log.debug(">>> Routing {} to {}: {}", 
+                    request.method(), serviceName, resolvedUri);
+            
+                // 3. Transférer le header Authorization (JWT)
+                String authHeader = request.headers()
+                    .firstHeader("Authorization");
+            
+                ServerRequest newRequest = ServerRequest.from(request)
+                    .header("Authorization", authHeader)
+                    .build();
+            
+                // 4. Utiliser MvcUtils pour définir l'URL résolue
+                MvcUtils.setRequestUrl(newRequest, resolvedUri);
+            
+                // 5. Forwarder la requête
+                return HandlerFunctions.http().handle(newRequest);
+            })
+            .filter(CircuitBreakerFilterFunctions.circuitBreaker(
+                serviceName + "CircuitBreaker",
+                URI.create("forward:/fallbackRoute")
+            ))
+            .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> productServiceRoute() {
+        return createServiceRoute("product-service", "/api/product/**");
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> orderServiceRoute() {
+        return createServiceRoute("order-service", "/api/order/**");
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> inventoryServiceRoute() {
+        return createServiceRoute("inventory-service", "/api/inventory/**");
+    }
+}
+```
+
+### 5.7.2 Explication de MvcUtils.setRequestUrl()
+
+`MvcUtils.setRequestUrl()` est une **classe utilitaire** de Spring Cloud Gateway MVC qui :
+
+| Fonction           | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| **Objectif** | Modifier l'URL de destination d'une requête        |
+| **Usage**    | Remplacer l'URL logique par l'URL physique résolue |
+| **Effet**    | La requête HTTP sera envoyée à l'URI fourni      |
+
+```java
+// AVANT MvcUtils.setRequestUrl()
+// request.uri() = /api/product/1 (URL logique)
+
+MvcUtils.setRequestUrl(newRequest, URI.create("http://localhost:8080/api/product/1"));
+
+// APRÈS MvcUtils.setRequestUrl()
+// La requête sera envoyée à http://localhost:8080/api/product/1
+```
+
+### 5.7.3 Pourquoi cette Synchronisation est Nécessaire
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    AVANTAGES DE LA SYNCHRONISATION EUREKA                        │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   ✅ Scaling Dynamique                                                          │
+│      • Ajout d'instances sans redémarrage du Gateway                            │
+│      • Product Service: 1 instance → 5 instances                                │
+│      • Gateway découvre automatiquement les nouvelles instances                 │
+│                                                                                  │
+│   ✅ Load Balancing Automatique                                                 │
+│      • Distribution Round-Robin entre instances                                 │
+│      • Pas de configuration manuelle                                            │
+│                                                                                  │
+│   ✅ Failover                                                                    │
+│      • Si une instance tombe, Eureka la marque DOWN                             │
+│      • LoadBalancer ne la sélectionne plus                                      │
+│      • Trafic redirigé vers instances saines                                    │
+│                                                                                  │
+│   ✅ Zero Downtime Deployment                                                   │
+│      • Déploiement progressif (Blue-Green)                                      │
+│      • Anciennes instances restent actives pendant le déploiement               │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5.8 Gateway MVC vs Gateway Reactive
+
+### 5.8.1 Comparaison Technique
+
+| Aspect                   | Gateway MVC (Notre Choix)             | Gateway Reactive               |
+| ------------------------ | ------------------------------------- | ------------------------------ |
+| **Stack**          | Servlet API (Tomcat)                  | WebFlux (Netty)                |
+| **Modèle**        | Blocking / Thread-per-request         | Non-blocking / Event Loop      |
+| **Load Balancing** | Nécessite `ServiceResolver` custom | Support natif `lb://`        |
+| **Debugging**      | Stack traces standard (facile)        | Stack traces async (difficile) |
+| **Compatibilité** | Services JDBC/JPA                     | Services réactifs             |
+| **Complexité**    | Plus simple                           | Plus complexe                  |
+
+### 5.8.2 Pourquoi Gateway MVC ?
+
+Notre choix de **Gateway MVC** est justifié par :
+
+1. **Cohérence** : Nos microservices utilisent Spring MVC (blocking)
+2. **Simplicité** : Équipe familière avec le modèle impératif
+3. **Debugging** : Stack traces plus claires
+4. **Intégration** : Compatibilité avec JDBC, JPA
+
+### 5.8.3 Schéma `lb://` dans Gateway Reactive
+
+Dans Gateway Reactive, le support est natif :
+
+```yaml
+# Gateway Reactive - Configuration YAML
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service  # ✅ Fonctionne directement
+          predicates:
+            - Path=/api/product/**
+```
+
+Dans Gateway MVC, nous devons **manuellement** résoudre via `ServiceResolver`.
+
+---
+
+## 5.9 Flux Complet de Requête
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    FLUX COMPLET CLIENT → SERVICE                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   1. Client                                                                      │
+│      POST /api/order                                                            │
+│      Authorization: Bearer eyJhbGc...                                           │
+│      │                                                                           │
+│      ▼                                                                           │
+│   2. API Gateway (Port 9000)                                                    │
+│      ├─► Validation JWT (Spring Security)                                       │
+│      ├─► Route Matching (/api/order/**)                                         │
+│      ├─► Circuit Breaker (Resilience4j)                                         │
+│      └─► ServiceResolver.resolve("order-service", "/api/order")                 │
+│           │                                                                      │
+│           ▼                                                                      │
+│   3. LoadBalancerClient                                                         │
+│      ├─► Consulte cache Eureka local                                            │
+│      ├─► Instances disponibles: [localhost:8081, localhost:8091]                │
+│      ├─► Sélection Round-Robin: localhost:8081                                  │
+│      └─► Retourne ServiceInstance                                               │
+│           │                                                                      │
+│           ▼                                                                      │
+│   4. MvcUtils.setRequestUrl()                                                   │
+│      URI finale: http://localhost:8081/api/order                                │
+│      │                                                                           │
+│      ▼                                                                           │
+│   5. HandlerFunctions.http().handle()                                           │
+│      Requête HTTP vers Order Service                                            │
+│      │                                                                           │
+│      ▼                                                                           │
+│   6. Order Service (Port 8081)                                                  │
+│      ├─► Validation JWT                                                         │
+│      ├─► Logique métier                                                         │
+│      ├─► Appel Inventory Service (via OpenFeign)                                │
+│      └─► Réponse                                                                │
+│           │                                                                      │
+│           ▼                                                                      │
+│   7. Gateway → Client                                                           │
+│      HTTP 201 Created                                                           │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Figure : Espace réservé pour diagramme flux complet**
+
+---
+
+## 5.10 Sécurité avec Keycloak
+
+### 5.10.1 Architecture de Sécurité
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
@@ -1050,7 +1554,7 @@ public class Routes {
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4.2 Configuration Spring Security
+### 5.10.2 Configuration Spring Security
 
 ```java
 @Configuration
@@ -1070,14 +1574,14 @@ public class SecurityConfig {
 }
 ```
 
-### 5.4.3 Configuration application.properties
+### 5.10.3 Configuration application.properties
 
 ```properties
 spring.security.oauth2.resourceserver.jwt.issuer-uri=
     http://localhost:8181/realms/spring-microservices-security-realm
 ```
 
-### 5.4.4 Structure du Token JWT
+### 5.10.4 Structure du Token JWT
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
@@ -1102,17 +1606,17 @@ spring.security.oauth2.resourceserver.jwt.issuer-uri=
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4.5 Types de Tokens Keycloak
+### 5.10.5 Types de Tokens Keycloak
 
 #### Access Token vs Refresh Token
 
-| Caractéristique | Access Token | Refresh Token |
-|-----------------|--------------|---------------|
-| **Objectif** | Autoriser les requêtes API | Obtenir de nouveaux access tokens |
-| **Durée de vie** | Courte (5 min) | Longue (30 min - 24h) |
-| **Envoyé à** | Gateway / APIs | Uniquement à Keycloak |
-| **Contenu** | Infos utilisateur, rôles | Juste un identifiant de référence |
-| **Si volé** | Dommages limités (expire vite) | Peut obtenir de nouveaux tokens |
+| Caractéristique        | Access Token                    | Refresh Token                       |
+| ----------------------- | ------------------------------- | ----------------------------------- |
+| **Objectif**      | Autoriser les requêtes API     | Obtenir de nouveaux access tokens   |
+| **Durée de vie** | Courte (5 min)                  | Longue (30 min - 24h)               |
+| **Envoyé à**    | Gateway / APIs                  | Uniquement à Keycloak              |
+| **Contenu**       | Infos utilisateur, rôles       | Juste un identifiant de référence |
+| **Si volé**      | Dommages limités (expire vite) | Peut obtenir de nouveaux tokens     |
 
 #### Cycle de Vie des Tokens
 
@@ -1139,25 +1643,25 @@ spring.security.oauth2.resourceserver.jwt.issuer-uri=
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4.6 Types de Clients Keycloak
+### 5.10.6 Types de Clients Keycloak
 
-| Type | Cas d'Usage | Secret ? | Exemple |
-|------|-------------|----------|---------|
-| **Public** | Apps navigateur (SPA), Mobile | ❌ Non | React, Vue, Angular |
-| **Confidential** | Apps serveur | ✅ Oui | Backend Spring Boot |
-| **Bearer-only** | Services API | N/A | Microservices qui valident uniquement les tokens |
+| Type                   | Cas d'Usage                   | Secret ? | Exemple                                          |
+| ---------------------- | ----------------------------- | -------- | ------------------------------------------------ |
+| **Public**       | Apps navigateur (SPA), Mobile | ❌ Non   | React, Vue, Angular                              |
+| **Confidential** | Apps serveur                  | ✅ Oui   | Backend Spring Boot                              |
+| **Bearer-only**  | Services API                  | N/A      | Microservices qui valident uniquement les tokens |
 
 #### Notre Configuration
 
 Pour notre projet, nous utilisons un **client public** (`frontend-app`) pour la page de login personnalisée :
 
-| Paramètre | Valeur | Justification |
-|-----------|--------|---------------|
-| Client Authentication | OFF | Client public (pas de secret) |
-| Direct Access Grants | ON | Permet le Password Grant Flow |
-| Standard Flow | OFF | Pas de callback redirect |
+| Paramètre            | Valeur | Justification                 |
+| --------------------- | ------ | ----------------------------- |
+| Client Authentication | OFF    | Client public (pas de secret) |
+| Direct Access Grants  | ON     | Permet le Password Grant Flow |
+| Standard Flow         | OFF    | Pas de callback redirect      |
 
-### 5.4.7 Vérification de la Signature JWT
+### 5.10.7 Vérification de la Signature JWT
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
@@ -1190,20 +1694,20 @@ Pour notre projet, nous utilisons un **client public** (`frontend-app`) pour la 
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.4.8 Contrôle d'Accès Basé sur les Rôles (RBAC)
+### 5.10.8 Contrôle d'Accès Basé sur les Rôles (RBAC)
 
-| Endpoint | Rôle Requis |
-|----------|-------------|
-| `GET /api/products` | USER, ADMIN |
-| `POST /api/products` | ADMIN |
-| `DELETE /api/products/{id}` | ADMIN |
-| `POST /orders` | USER, ADMIN |
+| Endpoint                      | Rôle Requis |
+| ----------------------------- | ------------ |
+| `GET /api/products`         | USER, ADMIN  |
+| `POST /api/products`        | ADMIN        |
+| `DELETE /api/products/{id}` | ADMIN        |
+| `POST /orders`              | USER, ADMIN  |
 
 ---
 
-## 5.5 Conteneurisation avec Docker
+## 5.11 Conteneurisation avec Docker
 
-### 5.5.1 Docker Compose - Product Service
+### 5.11.1 Docker Compose - Product Service
 
 ```yaml
 services:
@@ -1223,7 +1727,7 @@ volumes:
   mongodb_data:
 ```
 
-### 5.5.2 Docker Compose - Order Service (MySQL)
+### 5.11.2 Docker Compose - Order Service (MySQL)
 
 ```yaml
 services:
@@ -1239,15 +1743,807 @@ services:
       - ./mysql_data:/var/lib/mysql
 ```
 
-## 5.6 Conclusion du Chapitre
+## 5.12 Résilience avec Resilience4j
 
-Ce chapitre a détaillé l'implémentation des différents composants du système, de la communication inter-services avec OpenFeign à la sécurité OAuth2 avec Keycloak.
+### 5.12.1 Problématique de la Résilience
+
+Dans une architecture microservices, la **défaillance d'un service** peut entraîner des **effets en cascade** sur l'ensemble du système. Les problèmes courants incluent :
+
+| Problème                      | Impact                    | Solution        |
+| ------------------------------ | ------------------------- | --------------- |
+| **Service lent**         | Threads bloqués, timeout | TimeLimiter     |
+| **Service défaillant**  | Erreurs répétées       | Circuit Breaker |
+| **Pic de trafic**        | Surcharge système        | Rate Limiter    |
+| **Erreurs transitoires** | Échecs temporaires       | Retry           |
+
+### 5.12.2 Spring Cloud Circuit Breaker avec Resilience4j
+
+**Resilience4j** est une bibliothèque légère de tolérance aux pannes inspirée de Netflix Hystrix.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    COMPOSANTS RESILIENCE4J                                       │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
+│   │   CIRCUIT    │  │     TIME     │  │     RATE     │  │    RETRY     │       │
+│   │   BREAKER    │  │   LIMITER    │  │   LIMITER    │  │              │       │
+│   └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘       │
+│                                                                                  │
+│   • Protège contre  • Limite temps   • Contrôle trafic • Réessaie appels       │
+│     les défaillances  d'attente       • Anti-abus        échoués                │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.12.3 Dépendances Maven
+
+```xml
+<!-- Circuit Breaker avec Resilience4j -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+</dependency>
+
+<!-- Actuator pour monitoring -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
 
 ---
+
+## 5.13 Circuit Breaker Pattern
+
+### 5.13.1 Machine à États du Circuit Breaker
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    ÉTATS DU CIRCUIT BREAKER                                      │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│                           ┌──────────┐                                          │
+│                           │  CLOSED  │  ← État normal                           │
+│                           │ (Fermé)  │    Toutes les requêtes passent           │
+│                           └────┬─────┘                                          │
+│                                │                                                │
+│                                │ Taux d'échec ≥ 50%                             │
+│                                ▼                                                │
+│                           ┌──────────┐                                          │
+│                           │   OPEN   │  ← Circuit ouvert                        │
+│                           │ (Ouvert) │    Toutes les requêtes rejetées          │
+│                           └────┬─────┘                                          │
+│                                │                                                │
+│                                │ Après 5 secondes                               │
+│                                ▼                                                │
+│                           ┌──────────┐                                          │
+│                           │HALF_OPEN │  ← Test de récupération                 │
+│                           │(Mi-ouvert)│   3 requêtes de test                    │
+│                           └────┬─────┘                                          │
+│                                │                                                │
+│                    ┌───────────┴───────────┐                                    │
+│                    │                       │                                    │
+│              Succès ✅                  Échec ❌                                │
+│                    │                       │                                    │
+│                    ▼                       ▼                                    │
+│              ┌──────────┐            ┌──────────┐                               │
+│              │  CLOSED  │            │   OPEN   │                               │
+│              └──────────┘            └──────────┘                               │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.13.2 Configuration du Circuit Breaker
+
+```properties
+# Actuator Endpoints
+management.health.circuitbreakers.enabled=true
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+
+# Circuit Breaker Configuration
+resilience4j.circuitbreaker.configs.default.register-health-indicator=true
+resilience4j.circuitbreaker.configs.default.sliding-window-type=COUNT_BASED
+resilience4j.circuitbreaker.configs.default.sliding-window-size=10
+resilience4j.circuitbreaker.configs.default.minimum-number-of-calls=5
+resilience4j.circuitbreaker.configs.default.failure-rate-threshold=50
+resilience4j.circuitbreaker.configs.default.wait-duration-in-open-state=5s
+resilience4j.circuitbreaker.configs.default.permitted-number-of-calls-in-half-open-state=3
+resilience4j.circuitbreaker.configs.default.automatic-transition-from-open-to-half-open-enabled=true
+```
+
+### 5.13.3 Explication des Propriétés
+
+| Propriété                            | Valeur      | Signification                           |
+| -------------------------------------- | ----------- | --------------------------------------- |
+| **sliding-window-type**          | COUNT_BASED | Mesure basée sur les N derniers appels |
+| **sliding-window-size**          | 10          | Nombre d'appels à observer             |
+| **minimum-number-of-calls**      | 5           | Minimum d'appels avant évaluation      |
+| **failure-rate-threshold**       | 50%         | Seuil d'ouverture du circuit            |
+| **wait-duration-in-open-state**  | 5s          | Durée en état OPEN                    |
+| **permitted-calls-in-half-open** | 3           | Appels de test en HALF_OPEN             |
+
+### 5.13.4 Exemple de Scénario
+
+```
+Historique des 10 derniers appels :
+✔ ✔ ❌ ❌ ❌ ❌ ❌ ✔ ✔ ❌
+
+Calcul :
+- Total appels : 10
+- Échecs : 6
+- Taux d'échec : 60%
+
+Décision :
+60% ≥ 50% → Circuit passe à OPEN
+
+Comportement :
+T0 → Circuit OPEN
+T0-T5s → Toutes les requêtes rejetées immédiatement
+T5s → Transition automatique vers HALF_OPEN
+     → 3 requêtes de test autorisées
+     → Si succès → CLOSED
+     → Si échec → OPEN
+```
+
+**Figure : Espace réservé pour diagramme du scénario Circuit Breaker**
+
+---
+
+## 5.14 TimeLimiter Pattern
+
+### 5.14.1 Rôle du TimeLimiter
+
+Le **TimeLimiter** protège contre les **services lents** en limitant le temps d'attente maximum.
+
+```properties
+resilience4j.timelimiter.configs.default.timeout-duration=3s
+```
+
+### 5.14.2 Flux d'Exécution
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         FLUX TIMELIMITER                                         │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   Requête envoyée                                                               │
+│        │                                                                         │
+│        ▼                                                                         │
+│   Démarrage timer (3s)                                                          │
+│        │                                                                         │
+│        ▼                                                                         │
+│   Attente de la réponse                                                         │
+│        │                                                                         │
+│        ├─────────────┬─────────────┐                                            │
+│        │             │             │                                            │
+│   Réponse < 3s   Réponse ≥ 3s   Pas de réponse                                 │
+│        │             │             │                                            │
+│        ▼             ▼             ▼                                            │
+│    SUCCESS ✅    TIMEOUT ❌    TIMEOUT ❌                                       │
+│                      │             │                                            │
+│                      └─────┬───────┘                                            │
+│                            │                                                    │
+│                            ▼                                                    │
+│                   TimeoutException                                              │
+│                            │                                                    │
+│                            ├─► Circuit Breaker (compte comme échec)            │
+│                            ├─► Fallback déclenché                              │
+│                            └─► Client reçoit erreur                            │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.14.3 Exemple Pratique
+
+**Scénario :** Le Product Service est lent à cause d'un verrou de base de données.
+
+```
+Service répond en 6 secondes
+→ TimeLimiter arrête à 3s
+→ TimeoutException lancée
+→ Circuit Breaker enregistre un ÉCHEC
+→ Après 5 échecs → Circuit OPEN
+→ Gateway retourne fallback instantanément
+→ Système reste réactif
+```
+
+**Figure : Espace réservé pour timeline TimeLimiter**
+
+---
+
+## 5.15 Rate Limiter Pattern
+
+### 5.15.1 Configuration
+
+```properties
+resilience4j.ratelimiter.configs.default.timeout-duration=3s
+```
+
+### 5.15.2 Différence avec Circuit Breaker
+
+| Aspect                       | Circuit Breaker    | Rate Limiter     |
+| ---------------------------- | ------------------ | ---------------- |
+| **Protection contre**  | Défaillances      | Pics de trafic   |
+| **Logique**            | Basée sur échecs | Basée sur temps |
+| **État HALF_OPEN**    | ✅ Oui             | ❌ Non           |
+| **Limite par seconde** | ❌ Non             | ✅ Oui           |
+
+---
+
+## 5.16 Retry Pattern
+
+### 5.16.1 Configuration
+
+```properties
+resilience4j.retry.configs.default.max-attempts=3
+resilience4j.retry.configs.default.wait-duration=2s
+```
+
+### 5.16.2 Logique de Retry
+
+```
+Tentative #1 → Échec
+   ↓ (attente 2s)
+Tentative #2 → Échec
+   ↓ (attente 2s)
+Tentative #3 → Succès ✅
+```
+
+### 5.16.3 Interaction avec Circuit Breaker
+
+⚠️ **Attention :** Les retries comptent comme des appels individuels pour le Circuit Breaker.
+
+```
+1 requête utilisateur avec 3 tentatives
+→ 3 appels enregistrés par le Circuit Breaker
+
+2 requêtes utilisateur × 3 tentatives = 6 appels
+→ Peut ouvrir le circuit rapidement
+```
+
+### 5.16.4 Bonnes Pratiques
+
+| Cas d'Usage                  | Retry ? |
+| ---------------------------- | ------- |
+| Erreurs réseau transitoires | ✅ Oui  |
+| Service en démarrage        | ✅ Oui  |
+| Timeouts occasionnels        | ✅ Oui  |
+| Service surchargé           | ❌ Non  |
+| Erreurs de validation (4xx)  | ❌ Non  |
+
+---
+
+## 5.17 Architecture Complète de Résilience
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    FLUX COMPLET DE RÉSILIENCE                                    │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   Client                                                                         │
+│     │                                                                            │
+│     ▼                                                                            │
+│   ┌──────────────┐                                                              │
+│   │ Rate Limiter │  ← Contrôle du trafic                                        │
+│   └──────┬───────┘                                                              │
+│          │                                                                       │
+│          ▼                                                                       │
+│   ┌──────────────┐                                                              │
+│   │ TimeLimiter  │  ← Limite de latence                                         │
+│   └──────┬───────┘                                                              │
+│          │                                                                       │
+│          ▼                                                                       │
+│   ┌──────────────┐                                                              │
+│   │    Retry     │  ← Réessai en cas d'échec                                    │
+│   └──────┬───────┘                                                              │
+│          │                                                                       │
+│          ▼                                                                       │
+│   ┌──────────────┐                                                              │
+│   │Circuit Breaker│ ← Protection contre défaillances                            │
+│   └──────┬───────┘                                                              │
+│          │                                                                       │
+│          ▼                                                                       │
+│   ┌──────────────┐                                                              │
+│   │Load Balancer │  ← Sélection d'instance                                      │
+│   └──────┬───────┘                                                              │
+│          │                                                                       │
+│          ▼                                                                       │
+│   Service Cible                                                                  │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.17.1 Monitoring via Actuator
+
+L'état du Circuit Breaker est exposé via Spring Boot Actuator :
+
+```json
+{
+  "status": "DOWN",
+  "components": {
+    "circuitBreakers": {
+      "status": "DOWN",
+      "details": {
+        "inventoryService": {
+          "state": "OPEN",
+          "failureRate": "60%",
+          "slowCallRate": "0%",
+          "bufferedCalls": 10,
+          "failedCalls": 6
+        }
+      }
+    }
+  }
+}
+```
+
+**Endpoint :** `GET http://localhost:8081/actuator/health`
+
+**Figure : Espace réservé pour capture d'écran Actuator**
+
+---
+
+## 5.18 Modèle Mental des Patterns de Résilience
+
+| Pattern                  | Question Clé                                 |
+| ------------------------ | --------------------------------------------- |
+| **TimeLimiter**    | "Combien de temps puis-je attendre ?"         |
+| **RateLimiter**    | "Puis-je envoyer cette requête maintenant ?" |
+| **CircuitBreaker** | "Dois-je même essayer ?"                     |
+| **Retry**          | "Et si je réessayais ?"                      |
+| **LoadBalancer**   | "Vers quelle instance envoyer ?"              |
+| **Eureka**         | "Quelles instances existent ?"                |
+
+---
+
+## 5.19 Frontend Angular - Démonstration
+
+### 5.19.1 Stack Technologique Frontend
+
+Notre application frontend est développée avec **Angular 18**, un framework moderne et robuste pour la création d'applications web SPA (Single Page Application).
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         STACK FRONTEND ANGULAR                                   │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   ┌─────────────────────────────────────────────────────────────────────────┐   │
+│   │                        ANGULAR 18                                        │   │
+│   │                    (Framework Principal)                                 │   │
+│   └────────────────────────────┬────────────────────────────────────────────┘   │
+│                                │                                                 │
+│        ┌───────────────────────┼───────────────────────┐                        │
+│        │                       │                       │                         │
+│   ┌────▼────┐            ┌─────▼─────┐           ┌─────▼─────┐                  │
+│   │ OIDC    │            │  RxJS     │           │ Angular   │                  │
+│   │ Client  │            │ Reactive  │           │ Router    │                  │
+│   │ (Auth)  │            │ Streams   │           │ (Routes)  │                  │
+│   └─────────┘            └───────────┘           └───────────┘                  │
+│                                                                                  │
+│   ┌─────────────────────────────────────────────────────────────────────────┐   │
+│   │                    FONCTIONNALITÉS CLÉS                                  │   │
+│   ├─────────────────────────────────────────────────────────────────────────┤   │
+│   │  ✅ Authentification OAuth2/OIDC avec Keycloak                          │   │
+│   │  ✅ Contrôle d'accès basé sur les rôles (RBAC)                          │   │
+│   │  ✅ Thème clair/sombre personnalisable                                  │   │
+│   │  ✅ Composants standalone (Angular 17+)                                 │   │
+│   │  ✅ Intercepteur HTTP automatique (Bearer Token)                        │   │
+│   │  ✅ Système d'alertes global                                            │   │
+│   └─────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.19.2 Technologies Utilisées
+
+<!-- 🖼️ ICONS: Ajouter logos pour chaque technologie frontend -->
+
+| Technologie                        |             Icon             | Version | Rôle                             |
+| ---------------------------------- | :---------------------------: | ------- | --------------------------------- |
+| **Angular**                  |  `<!-- ICON: Angular -->`  | 18.0.0  | Framework SPA                     |
+| **TypeScript**               | `<!-- ICON: TypeScript -->` | 5.4     | Langage typé                     |
+| **RxJS**                     |    `<!-- ICON: RxJS -->`    | 7.8     | Programmation réactive           |
+| **angular-auth-oidc-client** |   `<!-- ICON: OpenID -->`   | 17.1.0  | Authentification OIDC             |
+| **CSS3**                     |    `<!-- ICON: CSS3 -->`    | -       | Thème moderne avec variables CSS |
+
+### 5.19.3 Architecture Frontend
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                      ARCHITECTURE FRONTEND ANGULAR                               │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   src/app/                                                                       │
+│   ├── config/                  # Configuration OIDC Keycloak                    │
+│   ├── guards/                  # authGuard, adminGuard (protection routes)      │
+│   ├── interceptor/             # HTTP Interceptor (injection Bearer token)      │
+│   ├── model/                   # Interfaces TypeScript (DTOs)                   │
+│   ├── pages/                   # Composants de pages                            │
+│   │   ├── home-page/           # Page d'accueil (catalogue produits)           │
+│   │   ├── orders/              # Mes commandes (utilisateur)                    │
+│   │   ├── profile/             # Profil utilisateur + thème                     │
+│   │   ├── add-product/         # Ajouter produit (admin)                        │
+│   │   └── admin/               # Pages administration                           │
+│   │       ├── dashboard/       # Tableau de bord admin                          │
+│   │       ├── products/        # Gestion produits CRUD                          │
+│   │       ├── orders/          # Toutes les commandes                           │
+│   │       └── inventory/       # Gestion inventaire                             │
+│   ├── services/                # Services Angular (HTTP, Auth, Theme)           │
+│   └── shared/                  # Composants partagés (Header, Alerts)           │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.19.4 Fonctionnalités Implémentées
+
+#### Gestion des Rôles (RBAC)
+
+| Fonctionnalité            | Client (USER) | Admin (ADMIN) | Invité |
+| -------------------------- | :-----------: | :-----------: | :-----: |
+| Voir les produits          |      ✅      |      ✅      |   ✅   |
+| Passer une commande        |      ✅      |      ❌      |   ❌   |
+| Voir ses commandes         |      ✅      |      ✅      |   ❌   |
+| Annuler une commande       |      ✅      |      ✅      |   ❌   |
+| Gérer les produits (CRUD) |      ❌      |      ✅      |   ❌   |
+| Voir toutes les commandes  |      ❌      |      ✅      |   ❌   |
+| Gérer l'inventaire        |      ❌      |      ✅      |   ❌   |
+| Accéder au profil         |      ✅      |      ✅      |   ❌   |
+
+#### Flux d'Authentification
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                   FLUX AUTHENTIFICATION FRONTEND                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   1. Utilisateur clique "Login"                                                 │
+│      │                                                                           │
+│      ▼                                                                           │
+│   2. Angular appelle oidcSecurityService.authorize()                            │
+│      │                                                                           │
+│      ▼                                                                           │
+│   3. Redirection vers Keycloak (http://localhost:9001)                          │
+│      │                                                                           │
+│      ▼                                                                           │
+│   4. Utilisateur entre ses credentials                                          │
+│      │                                                                           │
+│      ▼                                                                           │
+│   5. Keycloak redirige vers Angular avec ?code=xxx                              │
+│      │                                                                           │
+│      ▼                                                                           │
+│   6. AppComponent.ngOnInit() appelle checkAuth()                                │
+│      │                                                                           │
+│      ▼                                                                           │
+│   7. Échange du code contre Access Token + Refresh Token                        │
+│      │                                                                           │
+│      ▼                                                                           │
+│   8. Tokens stockés → Utilisateur authentifié                                   │
+│      │                                                                           │
+│      ▼                                                                           │
+│   9. AuthService appelle /api/me pour récupérer les rôles                       │
+│      │                                                                           │
+│      ▼                                                                           │
+│   10. Interface se met à jour (Header, menu Admin, etc.)                        │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 5.19.5 Démonstration des Pages
+
+#### 5.19.5.0 Pages d'Authentification Keycloak
+
+**Technologie :** Keycloak (IAM Open-Source)
+**URL :** `http://localhost:9001/realms/spring-microservices-security-realm`
+
+**Description :**
+L'authentification est gérée par **Keycloak**, une solution IAM (Identity and Access Management) open-source. Lorsqu'un utilisateur clique sur "Login", il est redirigé vers les pages Keycloak pour s'authentifier ou créer un compte.
+
+**Fonctionnalités :**
+
+- Page de connexion avec thème personnalisé
+- Création de compte utilisateur
+- Récupération de mot de passe
+- Single Sign-On (SSO)
+- Support multi-facteurs (optionnel)
+
+<div align="center">
+
+*Figure 5.19.0a — Page de connexion Keycloak*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342957467.png" width="90%">
+
+*Figure 5.19.0b — Page d'inscription Keycloak*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342979161.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.1 Page d'Accueil - Catalogue Produits
+
+**Route :** `/`
+**Accès :** Public
+
+**Description :**
+La page d'accueil présente le catalogue des produits disponibles avec une interface moderne. Les utilisateurs peuvent :
+
+- Rechercher des produits par nom ou ID
+- Voir les détails et prix des produits
+- Commander des produits (si authentifié en tant que CLIENT)
+
+**Fonctionnalités :**
+
+- Barre de recherche dynamique
+- Grille de produits responsive
+- Bouton "Order Now" avec quantité (pour clients)
+- Badge "Admin View" (pour administrateurs)
+
+<div align="center">
+
+*Figure 5.19.1 — Page d'accueil avec catalogue produits (Mode Sombre)*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341470641.png" width="90%">
+
+*Figure 5.19.2 — Page d'accueil en mode clair*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341528101.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.2 Page Mes Commandes
+
+**Route :** `/orders`
+**Accès :** Utilisateurs authentifiés
+
+**Description :**
+Cette page permet aux utilisateurs de consulter l'historique de leurs commandes et d'annuler les commandes en cours de traitement.
+
+**Fonctionnalités :**
+
+- Liste des commandes avec statut (badge coloré)
+- Détails : numéro de commande, SKU, quantité, prix, total
+- Bouton "Cancel Order" pour les commandes UNDER_PROCESS
+- Message d'état vide si aucune commande
+
+<div align="center">
+
+*Figure 5.19.3 — Page Mes Commandes*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341576936.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.3 Page Profil Utilisateur
+
+**Route :** `/profile`
+**Accès :** Utilisateurs authentifiés
+
+**Description :**
+La page de profil affiche les informations de l'utilisateur et permet de personnaliser l'application.
+
+**Fonctionnalités :**
+
+- Avatar avec initiale du nom
+- Affichage email, username, rôles
+- Toggle clair/sombre animé
+- Liens rapides vers les différentes sections
+- Bouton de déconnexion
+
+<div align="center">
+
+*Figure 5.19.4 — Page Profil avec toggle thème*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341674102.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.4 Dashboard Administrateur
+
+**Route :** `/admin`
+**Accès :** Administrateurs uniquement
+
+**Description :**
+Le tableau de bord administrateur offre une vue d'ensemble du système avec des statistiques clés et des accès rapides aux différentes fonctions de gestion.
+
+**Fonctionnalités :**
+
+- Statistiques : nombre de produits, commandes, inventaire
+- Cartes d'actions rapides (Manage Products, View Orders, etc.)
+- Liste des commandes récentes
+- Alertes de stock bas
+
+<div align="center">
+
+*Figure 5.19.5 — Dashboard administrateur*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341742622.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.5 Gestion des Produits (Admin)
+
+**Route :** `/admin/products`
+**Accès :** Administrateurs uniquement
+
+**Description :**
+Interface CRUD complète pour la gestion du catalogue produits.
+
+**Fonctionnalités :**
+
+- Tableau avec tous les produits
+- Bouton "Add Product" ouvrant un modal
+- Actions par ligne : Edit, Delete
+- Modal de création/édition avec validation
+- Recherche et tri
+
+<div align="center">
+
+*Figure 5.19.6 — Liste des produits (Admin)*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341863241.png" width="90%">
+
+*Figure 5.19.7 — Modal d'ajout/édition de produit*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767341992783.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.6 Gestion des Commandes (Admin)
+
+**Route :** `/admin/orders`
+**Accès :** Administrateurs uniquement
+
+**Description :**
+Vue complète de toutes les commandes du système avec possibilité d'annulation et suppression.
+
+**Fonctionnalités :**
+
+- Tableau de toutes les commandes (tous utilisateurs)
+- Badges de statut colorés (COMPLETED, CANCELLED, UNDER_PROCESS)
+- Actions : Cancel, Delete
+- Compteur total de commandes
+
+<div align="center">
+
+*Figure 5.19.8 — Gestion des commandes (Admin)*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342039073.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.7 Gestion de l'Inventaire (Admin)
+
+**Route :** `/admin/inventory`
+**Accès :** Administrateurs uniquement
+
+**Description :**
+Interface de gestion des stocks avec opérations d'achat et de vente.
+
+**Fonctionnalités :**
+
+- Statistiques : total items, en stock, rupture
+- Tableau avec SKU, quantité, statut
+- Boutons : + Purchase, - Sell, Edit
+- Modal pour chaque opération
+- Validation des quantités (pas de négatif)
+- Barre de recherche par SKU
+
+<div align="center">
+
+*Figure 5.19.9 — Gestion de l'inventaire*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342073748.png" width="90%">
+
+*Figure 5.19.10 — Modal d'achat de stock*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342092452.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.8 En-tête et Navigation
+
+**Composant :** `HeaderComponent`
+**Partout dans l'application**
+
+**Description :**
+L'en-tête s'adapte dynamiquement selon l'état d'authentification et le rôle de l'utilisateur.
+
+**Fonctionnalités :**
+
+- Logo cliquable (retour accueil)
+- Navigation : Products, My Orders
+- Menu déroulant Admin (Dashboard, Products, Orders, Inventory)
+- Avatar cliquable → Page profil
+- Badge Admin si administrateur
+- Bouton Login/Logout
+
+<div align="center">
+
+*Figure 5.19.11 — Header pour utilisateur client*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342169499.png" width="90%">
+
+*Figure 5.19.12 — Header pour administrateur avec menu déroulant*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342142166.png" width="90%">
+
+</div>
+
+---
+
+#### 5.19.5.9 Système d'Alertes Globales
+
+**Composant :** `GlobalAlertComponent`
+**Partout dans l'application**
+
+**Description :**
+Les notifications toast apparaissent en haut à droite pour informer l'utilisateur des actions réussies ou des erreurs.
+
+**Types d'alertes :**
+
+- **Success** (vert) : Action réussie
+- **Error** (rouge) : Erreur API ou validation
+- **Warning** (orange) : Avertissement
+- **Info** (bleu) : Information
+
+<div align="center">
+
+*Figure 5.19.13 — Alertes toast en action*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342199384.png" width="90%">
+
+</div>
+
+---
+
+### 5.19.6 Thème Clair/Sombre
+
+L'application supporte un mode clair et sombre, configurable depuis la page profil.
+
+| Élément                 | Mode Sombre              | Mode Clair               |
+| ------------------------- | ------------------------ | ------------------------ |
+| **Fond principal**  | #0f172a                  | #f8fafc                  |
+| **Carte**           | rgba(30, 41, 59, 0.8)    | rgba(255, 255, 255, 0.9) |
+| **Texte principal** | #f8fafc                  | #0f172a                  |
+| **Bordures**        | rgba(148, 163, 184, 0.1) | rgba(15, 23, 42, 0.1)    |
+
+<div align="center">
+
+*Figure 5.19.14 — Comparaison mode sombre vs mode clair*
+
+<img src="image/rapport_projet_microservices_ayoub_majjid_ayman_el_hilali/1767342230902.png" width="90%">
+
+</div>
+
+---
+
+## 5.20 Conclusion du Chapitre
+
+Ce chapitre a détaillé l'implémentation des différents composants du système, de la communication inter-services avec OpenFeign à la sécurité OAuth2 avec Keycloak, en passant par les mécanismes de résilience avec Resilience4j et l'interface utilisateur Angular moderne avec gestion des rôles et thème personnalisable.
 
 <div align="center">
 
 # CHAPITRE 6
+
 ## TESTS ET VALIDATION
 
 </div>
@@ -1320,11 +2616,11 @@ class InventoryServiceTest {
 
 ### 6.2.3 Caractéristiques
 
-| Aspect | Valeur |
-|--------|--------|
-| **Vitesse** | ⚡ Très rapide (millisecondes) |
-| **Isolation** | Aucun effet de bord |
-| **Contrôle** | Simulation de cas limites |
+| Aspect              | Valeur                          |
+| ------------------- | ------------------------------- |
+| **Vitesse**   | ⚡ Très rapide (millisecondes) |
+| **Isolation** | Aucun effet de bord             |
+| **Contrôle** | Simulation de cas limites       |
 
 ---
 
@@ -1439,7 +2735,7 @@ class OrderServiceTest {
 
         assertNotNull(response);
         assertEquals("PENDING", response.getStatus());
-        
+    
         // Vérification que l'API a été appelée
         verify(getRequestedFor(urlEqualTo("/api/inventory/IPHONE_15")));
     }
@@ -1450,24 +2746,24 @@ class OrderServiceTest {
 
 ## 6.6 Tableau Comparatif des Types de Tests
 
-| Critère | Unit (Mockito) | Integration (MockMvc) | E2E (RestAssured) | External (WireMock) |
-|---------|----------------|----------------------|-------------------|---------------------|
-| **Cible** | Classe unique | Controller + Service | Application complète | APIs externes |
-| **Vitesse** | ⚡ Très rapide | 🚀 Rapide | 🐢 Lent | 🚀 Rapide |
-| **Réseau** | Aucun | Simulé | Réel (HTTP) | Réel (vers mock) |
-| **BDD** | Mockée | Réelle (H2/Docker) | Réelle | N/A |
-| **Cas d'usage** | Logique métier | Validation JSON | Vérification finale | Dépendances |
+| Critère              | Unit (Mockito)  | Integration (MockMvc) | E2E (RestAssured)     | External (WireMock) |
+| --------------------- | --------------- | --------------------- | --------------------- | ------------------- |
+| **Cible**       | Classe unique   | Controller + Service  | Application complète | APIs externes       |
+| **Vitesse**     | ⚡ Très rapide | 🚀 Rapide             | 🐢 Lent               | 🚀 Rapide           |
+| **Réseau**     | Aucun           | Simulé               | Réel (HTTP)          | Réel (vers mock)   |
+| **BDD**         | Mockée         | Réelle (H2/Docker)   | Réelle               | N/A                 |
+| **Cas d'usage** | Logique métier | Validation JSON       | Vérification finale  | Dépendances        |
 
 ---
 
 ## 6.7 Métriques de Qualité
 
-| Métrique | Cible | Actuel |
-|----------|-------|--------|
-| **Couverture de code** | > 70% | 70%+ |
-| **Tests unitaires** | Tous les services | ✅ |
-| **Tests d'intégration** | Endpoints critiques | ✅ |
-| **Tests E2E** | Flux principaux | ✅ |
+| Métrique                      | Cible               | Actuel |
+| ------------------------------ | ------------------- | ------ |
+| **Couverture de code**   | > 70%               | 70%+   |
+| **Tests unitaires**      | Tous les services   | ✅     |
+| **Tests d'intégration** | Endpoints critiques | ✅     |
+| **Tests E2E**            | Flux principaux     | ✅     |
 
 ## 6.8 Conclusion du Chapitre
 
@@ -1478,6 +2774,7 @@ La stratégie de tests adoptée couvre tous les niveaux de la pyramide des tests
 <div align="center">
 
 # CHAPITRE 7
+
 ## RÉSULTATS ET DISCUSSION
 
 </div>
@@ -1488,39 +2785,41 @@ La stratégie de tests adoptée couvre tous les niveaux de la pyramide des tests
 >
 > Ce projet est actuellement en phase de développement actif. Les composants fondamentaux sont fonctionnels et les fonctionnalités avancées sont en cours d'implémentation.
 
-| Composant | Statut | Progression |
-|-----------|--------|-------------|
-| Product Service | ✅ Terminé | 100% |
-| Order Service | ✅ Terminé | 100% |
-| Inventory Service | ✅ Terminé | 100% |
-| API Gateway | ✅ Terminé | 100% |
-| Sécurité Keycloak | ✅ Terminé | 100% |
-| Notification Service | 🟡 En cours | 30% |
-| Tests Unitaires | ✅ Terminé | 100% |
-| Tests d'Intégration | 🟡 En cours | 70% |
-| Documentation | ✅ Terminé | 100% |
-| Frontend | ❌ Planifié | 0% |
-| CI/CD Pipeline | 🟡 En cours | 50% |
+| Composant                      | Statut      | Progression |
+| ------------------------------ | ----------- | ----------- |
+| Product Service                | ✅ Terminé | 100%        |
+| Order Service                  | ✅ Terminé | 100%        |
+| Inventory Service              | ✅ Terminé | 100%        |
+| API Gateway                    | ✅ Terminé | 100%        |
+| Eureka Service Discovery       | ✅ Terminé | 100%        |
+| Sécurité Keycloak            | ✅ Terminé | 100%        |
+| Circuit Breaker (Resilience4j) | ✅ Terminé | 100%        |
+| Notification Service           | 🟡 En cours | 30%         |
+| Tests Unitaires                | ✅ Terminé | 100%        |
+| Tests d'Intégration           | 🟡 En cours | 70%         |
+| Documentation                  | ✅ Terminé | 100%        |
+| Frontend                       | ✅ Terminé | 100%        |
+| CI/CD Pipeline                 | 🟡 En cours | 50%         |
 
-**Progression globale : ~70%**
+**Progression globale : ~80%**
 
 ## 7.2 Défis Rencontrés et Solutions
 
-| Défi | Problème | Solution |
-|------|----------|----------|
-| **Configuration JWT** | Erreur "Malformed Jwk set" | Utilisation de `issuer-uri` au lieu de `jwk-set-uri` |
-| **Communication inter-services** | RestTemplate verbeux | Migration vers OpenFeign |
-| **Persistance polyglotte** | Configuration de plusieurs datasources | Profils Spring et Docker Compose par service |
-| **Tests des Feign Clients** | Dépendance aux services externes | Utilisation de WireMock |
+| Défi                                  | Problème                              | Solution                                                 |
+| -------------------------------------- | -------------------------------------- | -------------------------------------------------------- |
+| **Configuration JWT**            | Erreur "Malformed Jwk set"             | Utilisation de `issuer-uri` au lieu de `jwk-set-uri` |
+| **Communication inter-services** | RestTemplate verbeux                   | Migration vers OpenFeign                                 |
+| **Persistance polyglotte**       | Configuration de plusieurs datasources | Profils Spring et Docker Compose par service             |
+| **Tests des Feign Clients**      | Dépendance aux services externes      | Utilisation de WireMock                                  |
 
 ## 7.3 Performances Observées
 
-| Métrique | Cible | Résultat |
-|----------|-------|----------|
-| Temps de réponse GET | < 200ms | 85ms ✅ |
-| Temps de réponse POST | < 300ms | 150ms ✅ |
-| Démarrage des services | < 10s | 8s ✅ |
-| Mémoire par service | < 512MB | ~400MB ✅ |
+| Métrique               | Cible   | Résultat |
+| ----------------------- | ------- | --------- |
+| Temps de réponse GET   | < 200ms | 85ms ✅   |
+| Temps de réponse POST  | < 300ms | 150ms ✅  |
+| Démarrage des services | < 10s   | 8s ✅     |
+| Mémoire par service    | < 512MB | ~400MB ✅ |
 
 ## 7.4 Leçons Apprises
 
@@ -1533,9 +2832,9 @@ La stratégie de tests adoptée couvre tous les niveaux de la pyramide des tests
 
 ### Points d'Amélioration
 
-1. **Circuit Breaker** : À implémenter pour améliorer la résilience
-2. **Distributed Tracing** : À ajouter pour le debugging en production
-3. **Rate Limiting** : À configurer au niveau de l'API Gateway
+1. **Distributed Tracing** : À ajouter pour le debugging en production (Zipkin/Tempo)
+2. **Centralized Logging** : À implémenter avec Loki ou ELK Stack
+3. **Monitoring avancé** : À configurer avec Prometheus et Grafana
 
 ## 7.5 Conclusion du Chapitre
 
@@ -1555,25 +2854,27 @@ Ce projet de fin d'année présente la conception et le développement d'une pla
 
 ### État Actuel du Projet
 
-| Phase | Statut |
-|-------|--------|
-| **Phase 1 : Architecture et Conception** | ✅ Terminée |
-| **Phase 2 : Développement des Services Métier** | ✅ Terminée |
-| **Phase 3 : Sécurité et API Gateway** | ✅ Terminée |
-| **Phase 4 : Tests et Validation** | 🟡 En cours (70%) |
-| **Phase 5 : Notification et Événements** | 🟡 En cours (30%) |
-| **Phase 6 : CI/CD et Déploiement** | 🟡 Planifié |
+| Phase                                                   | Statut            |
+| ------------------------------------------------------- | ----------------- |
+| **Phase 1 : Architecture et Conception**          | ✅ Terminée      |
+| **Phase 2 : Développement des Services Métier** | ✅ Terminée      |
+| **Phase 3 : Sécurité et API Gateway**           | ✅ Terminée      |
+| **Phase 4 : Tests et Validation**                 | 🟡 En cours (70%) |
+| **Phase 5 : Notification et Événements**        | 🟡 En cours (30%) |
+| **Phase 6 : CI/CD et Déploiement**               | 🟡 Planifié      |
 
 ### Réalisations Accomplies
 
-| Réalisation | Description |
-|-------------|-------------|
-| **Architecture** | Système distribué avec 4 microservices indépendants |
-| **Persistance** | Polyglot persistence (MongoDB + MySQL) |
-| **Communication** | Inter-services via OpenFeign |
-| **Sécurité** | OAuth2/OIDC avec Keycloak |
-| **Tests** | Stratégie pyramide (Unit, Integration, E2E) |
-| **Documentation** | Documentation technique complète |
+| Réalisation                | Description                                            |
+| --------------------------- | ------------------------------------------------------ |
+| **Architecture**      | Système distribué avec 4 microservices indépendants |
+| **Service Discovery** | Eureka avec Load Balancing client-side                 |
+| **Persistance**       | Polyglot persistence (MongoDB + MySQL)                 |
+| **Communication**     | Inter-services via OpenFeign                           |
+| **Sécurité**        | OAuth2/OIDC avec Keycloak                              |
+| **Résilience**       | Circuit Breaker, Retry, TimeLimiter avec Resilience4j  |
+| **Tests**             | Stratégie pyramide (Unit, Integration, E2E)           |
+| **Documentation**     | Documentation technique complète                      |
 
 ### Compétences Développées
 
@@ -1585,14 +2886,14 @@ Ce projet de fin d'année présente la conception et le développement d'une pla
 
 ### Travaux Restants
 
-| Priorité | Fonctionnalité | Échéance Estimée |
-|----------|----------------|------------------|
-| **Haute** | Notification Service (Kafka) | Janvier 2025 |
-| **Haute** | Tests d'intégration complets | Janvier 2025 |
-| **Moyenne** | Pipeline CI/CD | Février 2025 |
-| **Moyenne** | Circuit Breaker (Resilience4j) | Janvier 2025 |
-| **Basse** | Frontend React | Janvier 2025 |
-| **Basse** | Déploiement Kubernetes | Janvier 2025 |
+| Priorité         | Fonctionnalité               | Échéance Estimée |
+| ----------------- | ----------------------------- | ------------------- |
+| **Haute**   | Notification Service (Kafka)  | Janvier 2025        |
+| **Haute**   | Tests d'intégration complets | Janvier 2025        |
+| **Moyenne** | Pipeline CI/CD                | Février 2025       |
+| **Moyenne** | Distributed Tracing (Zipkin)  | Février 2025       |
+| **Basse**   | Frontend React                | Janvier 2025        |
+| **Basse**   | Déploiement Kubernetes       | Janvier 2025        |
 
 ### Perspectives
 
@@ -1614,19 +2915,20 @@ Ce projet démontre la faisabilité et les avantages d'une architecture microser
 4. **Spring Cloud OpenFeign** - https://spring.io/projects/spring-cloud-openfeign
 5. **Keycloak** - https://www.keycloak.org/documentation
 6. **Docker** - https://docs.docker.com
+7. **Resilience4j** - https://resilience4j.readme.io/docs
 
 ## Tutoriels et Ressources
 
-7. **Spring Boot Microservices Tutorial** - Programming Techie (YouTube)
-8. **OAuth 2.0 and OpenID Connect** - https://oauth.net/2/
-9. **JWT.io** - https://jwt.io
-10. **WireMock** - https://wiremock.org/docs/
+8. **Spring Boot Microservices Tutorial** - Programming Techie (YouTube)
+9. **OAuth 2.0 and OpenID Connect** - https://oauth.net/2/
+10. **JWT.io** - https://jwt.io
+11. **WireMock** - https://wiremock.org/docs/
 
 ## Articles Techniques
 
-11. **Microservices Architecture** - Martin Fowler
-12. **12-Factor App** - https://12factor.net
-13. **Keycloak Spring Integration** - Altkom Software & Consulting
+12. **Microservices Architecture** - Martin Fowler
+13. **12-Factor App** - https://12factor.net
+14. **Keycloak Spring Integration** - Altkom Software & Consulting
 
 ---
 
@@ -1671,62 +2973,62 @@ SPRING_CommerceFlow-MS/
 
 ### Product Service (Port 8080)
 
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| GET | /api/products | Lister tous les produits |
-| GET | /api/products/{id} | Détails d'un produit |
-| POST | /api/products | Créer un produit |
-| PUT | /api/products/{id} | Modifier un produit |
-| DELETE | /api/products/{id} | Supprimer un produit |
+| Méthode | Endpoint           | Description              |
+| -------- | ------------------ | ------------------------ |
+| GET      | /api/products      | Lister tous les produits |
+| GET      | /api/products/{id} | Détails d'un produit    |
+| POST     | /api/products      | Créer un produit        |
+| PUT      | /api/products/{id} | Modifier un produit      |
+| DELETE   | /api/products/{id} | Supprimer un produit     |
 
 ### Order Service (Port 8081)
 
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| GET | /api/orders | Lister toutes les commandes |
-| GET | /api/orders/{id} | Détails d'une commande |
-| POST | /api/orders | Passer une commande |
-| POST | /api/orders/{id}/cancel | Annuler une commande |
+| Méthode | Endpoint                | Description                 |
+| -------- | ----------------------- | --------------------------- |
+| GET      | /api/orders             | Lister toutes les commandes |
+| GET      | /api/orders/{id}        | Détails d'une commande     |
+| POST     | /api/orders             | Passer une commande         |
+| POST     | /api/orders/{id}/cancel | Annuler une commande        |
 
 ### Inventory Service (Port 8082)
 
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| GET | /api/inventory/{sku} | Vérifier le stock |
-| POST | /api/inventory | Créer un inventaire |
-| POST | /api/inventory/{sku}/sell | Diminuer le stock |
-| POST | /api/inventory/{sku}/purchase | Augmenter le stock |
+| Méthode | Endpoint                      | Description          |
+| -------- | ----------------------------- | -------------------- |
+| GET      | /api/inventory/{sku}          | Vérifier le stock   |
+| POST     | /api/inventory                | Créer un inventaire |
+| POST     | /api/inventory/{sku}/sell     | Diminuer le stock    |
+| POST     | /api/inventory/{sku}/purchase | Augmenter le stock   |
 
 ### Gateway Service (Port 9000)
 
-| Méthode | Pattern | Service Cible |
-|---------|---------|---------------|
-| * | /api/product/** | Product Service |
-| * | /api/orders/** | Order Service |
-| * | /api/inventory/** | Inventory Service |
+| Méthode | Pattern           | Service Cible     |
+| -------- | ----------------- | ----------------- |
+| *        | /api/product/**   | Product Service   |
+| *        | /api/orders/**    | Order Service     |
+| *        | /api/inventory/** | Inventory Service |
 
 ## Annexe C : Variables d'Environnement
 
-| Variable | Valeur | Description |
-|----------|--------|-------------|
-| KEYCLOAK_URL | http://localhost:8181 | URL du serveur Keycloak |
-| KEYCLOAK_REALM | spring-microservices-security-realm | Nom du realm |
-| MONGODB_URI | mongodb://localhost:27017 | Connexion MongoDB |
-| MYSQL_URL | jdbc:mysql://localhost:3306 | Connexion MySQL |
+| Variable       | Valeur                              | Description             |
+| -------------- | ----------------------------------- | ----------------------- |
+| KEYCLOAK_URL   | http://localhost:8181               | URL du serveur Keycloak |
+| KEYCLOAK_REALM | spring-microservices-security-realm | Nom du realm            |
+| MONGODB_URI    | mongodb://localhost:27017           | Connexion MongoDB       |
+| MYSQL_URL      | jdbc:mysql://localhost:3306         | Connexion MySQL         |
 
 ## Annexe D : Codes HTTP de Référence
 
-| Code | Signification | Usage |
-|------|---------------|-------|
-| 200 | OK | Requête réussie |
-| 201 | Created | Ressource créée |
-| 400 | Bad Request | Requête invalide |
-| 401 | Unauthorized | Token manquant/invalide |
-| 403 | Forbidden | Permissions insuffisantes |
-| 404 | Not Found | Ressource inexistante |
-| 409 | Conflict | Stock insuffisant |
-| 422 | Unprocessable Entity | Règle métier violée |
-| 500 | Internal Server Error | Erreur serveur |
+| Code | Signification         | Usage                     |
+| ---- | --------------------- | ------------------------- |
+| 200  | OK                    | Requête réussie         |
+| 201  | Created               | Ressource créée         |
+| 400  | Bad Request           | Requête invalide         |
+| 401  | Unauthorized          | Token manquant/invalide   |
+| 403  | Forbidden             | Permissions insuffisantes |
+| 404  | Not Found             | Ressource inexistante     |
+| 409  | Conflict              | Stock insuffisant         |
+| 422  | Unprocessable Entity  | Règle métier violée    |
+| 500  | Internal Server Error | Erreur serveur            |
 
 ---
 

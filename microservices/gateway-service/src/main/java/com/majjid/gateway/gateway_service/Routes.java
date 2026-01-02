@@ -6,12 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.server.mvc.common.MvcUtils;
+import org.springframework.cloud.gateway.server.mvc.filter.CircuitBreakerFilterFunctions;
 import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctions;
 import org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.function.*;
@@ -152,7 +154,8 @@ public class Routes {
 
                     MvcUtils.setRequestUrl(newRequest, resolvedUri);
                     return HandlerFunctions.http().handle(newRequest);
-                })
+                }).filter(CircuitBreakerFilterFunctions.circuitBreaker(serviceName + "CircuitBreaker",
+                        URI.create("forward:/fallbackRoute")))
                 .build();
     }
 
@@ -176,5 +179,16 @@ public class Routes {
     public RouterFunction<ServerResponse> inventoryServiceRoute() {
         log.info(">>> Registering inventory-service route with Eureka service discovery");
         return createServiceRoute("inventory-service", "/api/inventory/**");
+    }
+
+    @Bean
+    public  RouterFunction<ServerResponse> fallbackRoute(){
+
+      return GatewayRouterFunctions.route("/fallbackRoute")
+                      .GET("/", request ->
+                              ServerResponse.status(HttpStatus.SERVICE_UNAVAILABLE).body("Service Unavailable")
+                      )
+              .build();
+
     }
 }
