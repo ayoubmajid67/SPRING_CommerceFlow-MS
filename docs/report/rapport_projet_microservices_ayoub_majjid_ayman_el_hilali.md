@@ -1958,10 +1958,101 @@ Service répond en 6 secondes
 ### 5.15.1 Configuration
 
 ```properties
-resilience4j.ratelimiter.configs.default.timeout-duration=3s
+resilience4j.ratelimiter.configs.default.limitRefreshPeriod=1s
+resilience4j.ratelimiter.configs.default.limitForPeriod=10
 ```
 
-### 5.15.2 Différence avec Circuit Breaker
+Cette configuration signifie que le système peut traiter **10 requêtes par seconde**.
+
+### 5.15.2 Explication du Fonctionnement
+
+Cette configuration établit un **limiteur de débit** qui :
+- Autorise **10 requêtes** dans une **fenêtre de 1 seconde**
+- Réinitialise le compteur chaque seconde
+- Bloque toute requête au-delà de cette limite
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    COMPORTEMENT DU RATE LIMITER                                  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   Temps:     0s ──► 1s ──► 2s ──► 3s ──► 4s ──► 5s                              │
+│   Requêtes:  10     0     10     0     10     0                                 │
+│                                                                                  │
+│   • À chaque seconde, le système autorise exactement 10 requêtes                │
+│   • Toute requête au-delà de la 10ème dans cette seconde est bloquée           │
+│   • Le compteur se réinitialise chaque seconde                                  │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.15.3 Exemple Pratique
+
+**Scénario :** Un service reçoit 15 requêtes en une seconde.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         EXEMPLE DE RATE LIMITING                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   Requêtes entrantes : 15 en 1 seconde                                          │
+│                                                                                  │
+│   ┌────────────────────────────────────────────────────────────────────────┐    │
+│   │ Requête 1  → ✅ Traitée normalement                                   │    │
+│   │ Requête 2  → ✅ Traitée normalement                                   │    │
+│   │ Requête 3  → ✅ Traitée normalement                                   │    │
+│   │ Requête 4  → ✅ Traitée normalement                                   │    │
+│   │ Requête 5  → ✅ Traitée normalement                                   │    │
+│   │ Requête 6  → ✅ Traitée normalement                                   │    │
+│   │ Requête 7  → ✅ Traitée normalement                                   │    │
+│   │ Requête 8  → ✅ Traitée normalement                                   │    │
+│   │ Requête 9  → ✅ Traitée normalement                                   │    │
+│   │ Requête 10 → ✅ Traitée normalement                                   │    │
+│   │ Requête 11 → ❌ Rejetée (HTTP 429 Too Many Requests)                  │    │
+│   │ Requête 12 → ❌ Rejetée (HTTP 429 Too Many Requests)                  │    │
+│   │ Requête 13 → ❌ Rejetée (HTTP 429 Too Many Requests)                  │    │
+│   │ Requête 14 → ❌ Rejetée (HTTP 429 Too Many Requests)                  │    │
+│   │ Requête 15 → ❌ Rejetée (HTTP 429 Too Many Requests)                  │    │
+│   └────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                  │
+│   Résultat : 10 requêtes traitées, 5 requêtes rejetées                         │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.15.4 Points Importants
+
+| Caractéristique                    | Description                                                               |
+| ---------------------------------- | ------------------------------------------------------------------------- |
+| **Limite stricte**           | Le système ne traitera jamais plus de requêtes que le seuil défini      |
+| **Limite par instance**      | Si vous avez plusieurs instances, chacune peut gérer 10 requêtes/seconde |
+| **Distribution non lissée** | Les 10 requêtes peuvent arriver dans la première milliseconde            |
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    DISTRIBUTION DES REQUÊTES                                     │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                  │
+│   Cas 1 : Distribution uniforme                                                  │
+│   ────────────────────────────────                                              │
+│   0ms    100ms   200ms   300ms   400ms   500ms   600ms   700ms   800ms   900ms  │
+│    │      │       │       │       │       │       │       │       │       │     │
+│    R1     R2      R3      R4      R5      R6      R7      R8      R9     R10    │
+│    ✅     ✅      ✅      ✅      ✅      ✅      ✅      ✅      ✅      ✅    │
+│                                                                                  │
+│   Cas 2 : Burst de requêtes (toutes dans les premières ms)                       │
+│   ────────────────────────────────────────────────────                          │
+│   0ms                                         ... 900ms sans requête ...         │
+│    │                                                                             │
+│    R1,R2,R3...R10,R11,R12,R13,R14,R15                                           │
+│    ✅ ✅ ✅    ✅  ❌  ❌  ❌  ❌  ❌                                           │
+│                                                                                  │
+│   → Les 10 premières passent, les 5 suivantes sont rejetées immédiatement       │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.15.5 Différence avec Circuit Breaker
 
 | Aspect                       | Circuit Breaker    | Rate Limiter     |
 | ---------------------------- | ------------------ | ---------------- |
