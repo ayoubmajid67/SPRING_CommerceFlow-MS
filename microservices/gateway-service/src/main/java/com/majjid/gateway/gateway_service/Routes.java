@@ -1,7 +1,8 @@
 package com.majjid.gateway.gateway_service;
 
 import com.majjid.gateway.gateway_service.config.ServiceResolver;
-import com.majjid.gateway.gateway_service.utils.SecurityUtils;
+import com.majjid.gateway.gateway_service.filter.CircuitBreakerExceptionFilter;
+import com.majjid.gateway.gateway_service.filter.Resilience4jRetryFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ import java.util.Map;
  *
  * Uses Eureka service discovery for routing:
  * - Service names (product-service, order-service, inventory-service)
- *   are resolved by Eureka via LoadBalancerClient to actual host:port
+ * are resolved by Eureka via LoadBalancerClient to actual host:port
  * - No need to hardcode localhost:port
  * - Enables load balancing when multiple instances are running
  */
@@ -48,10 +49,13 @@ public class Routes {
     // Dependencies
     private final RestTemplate restTemplate;
     private final ServiceResolver serviceResolver;
+    private final io.github.resilience4j.retry.RetryRegistry retryRegistry;
 
-    public Routes(RestTemplate restTemplate, ServiceResolver serviceResolver) {
+    public Routes(RestTemplate restTemplate, ServiceResolver serviceResolver,
+            io.github.resilience4j.retry.RetryRegistry retryRegistry) {
         this.restTemplate = restTemplate;
         this.serviceResolver = serviceResolver;
+        this.retryRegistry = retryRegistry;
     }
 
     // ==========================================
@@ -59,9 +63,8 @@ public class Routes {
     // ==========================================
     // Uses @LoadBalanced RestTemplate to resolve service names via Eureka
 
-
-//    Todo : clean up swagger routes
-//    Todo : check if works with JWT auth in the product service
+    // Todo : clean up swagger routes
+    // Todo : check if works with JWT auth in the product service
     @Bean
     @Order(1)
     public RouterFunction<ServerResponse> swaggerRoutes() {
@@ -154,11 +157,113 @@ public class Routes {
 
                     MvcUtils.setRequestUrl(newRequest, resolvedUri);
                     return HandlerFunctions.http().handle(newRequest);
-                }).filter(CircuitBreakerFilterFunctions.circuitBreaker(serviceName + "CircuitBreaker",
-                        URI.create("forward:/fallbackRoute")))
+                })
+                // Capture request context and exceptions for the fallback route
+                .filter(CircuitBreakerExceptionFilter.captureContext(serviceName))
+
+                // Convert 5xx/404 Status Codes to Exceptions (Must be INNER to Circuit Breaker)
+                .filter(com.majjid.gateway.gateway_service.filter.ExceptionTranslationFilter.checkStatus())
+
+                // Retry mechanism (Resilience4j) - Wraps Circuit Breaker
+                .filter(CircuitBreakerFilterFunctions.circuitBreaker(
+                        serviceName + "CircuitBreaker",
+                        URI.create("forward:/fallbackRoute/" + serviceName)))
+                .filter(Resilience4jRetryFilter.retry("default", retryRegistry))
+
+                .build();
+
+    }
+
+    @Bean
+    @Order(0) // High priority to ensure fallback is available
+    public RouterFunction<ServerResponse> fallbackRoute() {
+        log.info(">>> Registering fallback route for circuit breaker");
+        return GatewayRouterFunctions.route("fallbackRoute")
+                .route(RequestPredicates.path("/fallbackRoute/{serviceName}"),
+                        request -> {
+                            // Extract service name from path
+                            String serviceName = request.pathVariable("serviceName");
+
+                            // Get original request URI before forward
+                            String originalPath = getOriginalRequestUri(request);
+
+                            // Retrieve the exception from MvcUtils attribute (the correct key!)
+                            Throwable exception = (Throwable) request
+                                    .attribute(MvcUtils.CIRCUITBREAKER_EXECUTION_EXCEPTION_ATTR)
+                                    .orElse(null);
+
+                            // Determine error details
+                            String errorType = "Service Unavailable";
+                            String errorMessage = String.format(
+                                    "The %s service is temporarily unavailable. Please try again later.",
+                                    serviceName);
+                            String rootCause = null;
+
+                            if (exception != null) {
+                                errorType = exception.getClass().getSimpleName();
+                                errorMessage = exception.getMessage() != null
+                                        ? exception.getMessage()
+                                        : "An error occurred while processing your request.";
+
+                                // Get root cause if available
+                                Throwable cause = exception.getCause();
+                                if (cause != null) {
+                                    rootCause = cause.getClass().getSimpleName() + ": " + cause.getMessage();
+                                }
+
+                                log.warn("Circuit breaker fallback triggered for service: {} | Error: {} | Message: {}",
+                                        serviceName, errorType, errorMessage);
+                            } else {
+                                log.warn("Circuit breaker fallback triggered for service: {} (no exception captured)",
+                                        serviceName);
+                            }
+
+                            // Build consistent JSON response
+                            var responseMap = new java.util.LinkedHashMap<String, Object>();
+                            responseMap.put("error", errorType);
+                            responseMap.put("message", errorMessage);
+                            responseMap.put("service", serviceName);
+                            responseMap.put("path", originalPath);
+                            responseMap.put("status", 503);
+                            responseMap.put("timestamp", java.time.Instant.now().toString());
+                            if (rootCause != null) {
+                                responseMap.put("rootCause", rootCause);
+                            }
+
+                            return ServerResponse
+                                    .status(HttpStatus.SERVICE_UNAVAILABLE)
+                                    .contentType(MediaType.APPLICATION_JSON)
+                                    .body(responseMap);
+                        })
                 .build();
     }
 
+    /**
+     * Extracts the original request URI before the forward happened.
+     * Uses Jakarta Servlet RequestDispatcher.FORWARD_REQUEST_URI constant.
+     */
+    private String getOriginalRequestUri(ServerRequest request) {
+        try {
+            jakarta.servlet.http.HttpServletRequest servletRequest = request.servletRequest();
+
+            // Get original URI from forward attributes
+            Object originalUri = servletRequest.getAttribute(jakarta.servlet.RequestDispatcher.FORWARD_REQUEST_URI);
+            if (originalUri instanceof String) {
+                return (String) originalUri;
+            }
+
+            // Fallback to error request URI
+            Object errorUri = servletRequest.getAttribute(jakarta.servlet.RequestDispatcher.ERROR_REQUEST_URI);
+            if (errorUri instanceof String) {
+                return (String) errorUri;
+            }
+        } catch (Exception e) {
+            log.debug("Could not get original request URI: {}", e.getMessage());
+        }
+
+        // Default fallback
+        return request.uri().getPath();
+    }
 
     @Bean
     @Order(2)
@@ -181,14 +286,4 @@ public class Routes {
         return createServiceRoute("inventory-service", "/api/inventory/**");
     }
 
-    @Bean
-    public  RouterFunction<ServerResponse> fallbackRoute(){
-
-      return GatewayRouterFunctions.route("/fallbackRoute")
-                      .GET("/", request ->
-                              ServerResponse.status(HttpStatus.SERVICE_UNAVAILABLE).body("Service Unavailable")
-                      )
-              .build();
-
-    }
 }

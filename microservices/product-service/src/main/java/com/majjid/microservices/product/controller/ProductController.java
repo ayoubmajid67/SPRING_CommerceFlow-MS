@@ -19,13 +19,17 @@ public class ProductController {
     private final IProductService productService;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<ProductResponseDto>> createProduct(@Valid @RequestBody ProductRequestDto productRequestDto) {
+    public ResponseEntity<ResponseDto<ProductResponseDto>> createProduct(
+            @Valid @RequestBody ProductRequestDto productRequestDto) {
         ResponseDto<ProductResponseDto> response = productService.createProduct(productRequestDto);
         return ResponseEntity.status(response.getStatus()).body(response);
     }
 
     @GetMapping
-    public ResponseEntity<ResponseDto<List<ProductResponseDto>>> getProducts() {
+    public ResponseEntity<ResponseDto<List<ProductResponseDto>>> getProducts() throws InterruptedException {
+        // Simulate slow response to test circuit breaker timeout (3s configured in
+        // gateway)
+        Thread.sleep(6000);
         ResponseDto<List<ProductResponseDto>> response = productService.getProducts();
         return ResponseEntity.status(response.getStatus()).body(response);
     }

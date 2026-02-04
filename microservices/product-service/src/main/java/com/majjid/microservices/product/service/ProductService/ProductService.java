@@ -37,13 +37,23 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public ResponseDto<List<ProductResponseDto>> getProducts() {
+    public ResponseDto<List<ProductResponseDto>> getProducts()   {
         log.info("Fetching all products");
+
+        if(true){
+//            throw new CustomAppException(
+//                    HttpStatus.INTERNAL_SERVER_ERROR,
+//                    "No products found in the database."
+//            );
+//
+            throw new RuntimeException("Simulated exception for testing purposes");
+        }
 
         List<ProductResponseDto> products = productRepository.findAll()
                 .stream()
                 .map(mapper::toDto)
                 .toList();
+
 
         return ResponseDto.listed(products, "products");
     }

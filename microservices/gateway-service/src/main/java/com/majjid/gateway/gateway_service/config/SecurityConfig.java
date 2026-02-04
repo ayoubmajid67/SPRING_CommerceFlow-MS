@@ -25,7 +25,9 @@ public class SecurityConfig {
                                                                 "/swagger-ui/**",
                                                                 "/swagger-ui.html",
                                                                 "/v3/api-docs/**",
-                                                                "/aggregate/**")
+                                                                "/aggregate/**",
+                                                                "/actuator/**",
+                                                                "/fallbackRoute/**") // Circuit breaker fallback
                                                 .permitAll()
 
                                                 // ✅ PUBLIC: Product GET requests
