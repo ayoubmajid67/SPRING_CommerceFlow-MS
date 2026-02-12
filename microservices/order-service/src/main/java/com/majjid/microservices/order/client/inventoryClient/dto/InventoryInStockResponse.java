@@ -1,5 +1,6 @@
 package com.majjid.microservices.order.client.inventoryClient.dto;
 
+import lombok.Builder;
 import org.springframework.http.HttpStatus;
 
 public record InventoryInStockResponse (

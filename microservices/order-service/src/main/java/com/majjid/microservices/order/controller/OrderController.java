@@ -8,6 +8,7 @@ import com.majjid.microservices.order.Dto.order.OrderUpdateRequestDto;
 import com.majjid.microservices.order.service.orderService.IOrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/order")
+@Slf4j
 public class OrderController {
 final  private IOrderService orderService;
 
@@ -34,6 +36,7 @@ ResponseEntity<ResponseDto<OrderResponseDto>> getOrderById(@PathVariable Integer
 }
 @PostMapping
 ResponseEntity<ResponseDto<OrderResponseDto>> placeAnOrder(@Valid @RequestBody OrderCreateRequestDto orderCreateRequestDto) {
+        log.info("orderCreateRequestDto={}", orderCreateRequestDto);
         ResponseDto<OrderResponseDto> orderResponseDto = orderService.placeAnOrder(orderCreateRequestDto);
         return  ResponseEntity.status(orderResponseDto.getStatus()).body(orderResponseDto);
 

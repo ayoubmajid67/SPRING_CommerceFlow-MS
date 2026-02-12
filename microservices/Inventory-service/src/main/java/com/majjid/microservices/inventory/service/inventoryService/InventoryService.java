@@ -86,6 +86,10 @@ public class InventoryService implements IInventoryService {
     @Transactional
     @Override
     public ResponseDto<InventoryResponseDto> sellInventory(String skuCode, SellDto sellDto) {
+        log.info("Sell Service Response: {}", sellDto);
+//        if(true){
+//            throw new CustomAppException(HttpStatus.INTERNAL_SERVER_ERROR,"Simulated exception for testing resilience");
+//        }
         Inventory inventory = inventoryRepository.findBySkuCode(skuCode)
                 .orElseThrow(() -> new CustomAppException(HttpStatus.NOT_FOUND,
                         CustomAppException.buildNotFoundMsg(skuCode, "inventory")));
